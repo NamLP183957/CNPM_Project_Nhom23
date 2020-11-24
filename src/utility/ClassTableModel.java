@@ -2,7 +2,7 @@
 package utility;
 
 import java.util.List;
-import javax.swing.JScrollPane;
+import javafx.util.Pair;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import models.PhanAnh;
@@ -25,6 +25,24 @@ public class ClassTableModel {
             PhanAnh phanAnh = listPhanAnh.get(i);
             dtm.addRow(new Object[]{
                 i+1, phanAnh.getName(), phanAnh.getDate(), phanAnh.getContent(), phanAnh.getType(), phanAnh.getState()
+            });
+        }
+        
+        return dtm;
+    }
+    
+    public DefaultTableModel setThongKeTable(String tieuChi, List<Pair<Integer, String> > list, JTable jtb){
+        DefaultTableModel dtm = (DefaultTableModel) jtb.getModel();
+        dtm.setRowCount(0);
+        dtm.setColumnIdentifiers(new Object[]{
+            tieuChi, "Số lượng"
+        });
+        
+        for(int i = 0; i < list.size(); i++){
+            String field = list.get(i).getValue();
+            int soLuong = list.get(i).getKey();
+            dtm.addRow(new Object[] {
+                field, soLuong
             });
         }
         
