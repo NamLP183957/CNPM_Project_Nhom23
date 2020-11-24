@@ -61,7 +61,12 @@ public class PhanHoiModify {
     }
     
     public static void timKiemPhanAnh(){
-        
+        Connection conn=null;
+        try{
+            conn= new SQLconnection().Connect();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
     
     
