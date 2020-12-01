@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import java.awt.FlowLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.util.Pair;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -101,5 +104,30 @@ public class ThongKeController {
         root.updateUI();
     }
     
-    
+    public void addReport(JPanel root, String tieuChi) {
+        root.removeAll();
+        createDataSet(tieuChi);
+        root.setLayout(new BoxLayout(root, BoxLayout.Y_AXIS));
+        JLabel report = new JLabel("Report");
+        report.setFont(new java.awt.Font("Times New Roman", 1, 22));
+        root.add(report);
+        
+        int sum = 0;
+        for(int i = 0; i < list.size(); i++){
+            int soLuong = list.get(i).getKey();
+            sum += soLuong;
+        }
+        
+        for(int i = 0; i < list.size(); i++){
+            String content = list.get(i).getValue();
+            double soLuong = (double)list.get(i).getKey() / (double)sum * 100;
+            soLuong = Math.round(soLuong * 100.0) / 100.0;
+            JLabel jlb = new JLabel();
+            jlb.setFont(new java.awt.Font("Times New Roman", 1, 20));
+            jlb.setText(tieuChi + " " + content + ": " + soLuong  + "%");
+            root.add(jlb);
+        }
+        
+        
+    }
 }

@@ -40,7 +40,6 @@ public class ThongKePanel extends javax.swing.JPanel {
         TieuChiCB = new javax.swing.JComboBox<>();
         ShowBtn = new javax.swing.JButton();
         jpnReport = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
 
         DiagramArea.setLayout(new javax.swing.BoxLayout(DiagramArea, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -58,26 +57,15 @@ public class ThongKePanel extends javax.swing.JPanel {
             }
         });
 
-        jpnReport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel2.setText("Report");
-
         javax.swing.GroupLayout jpnReportLayout = new javax.swing.GroupLayout(jpnReport);
         jpnReport.setLayout(jpnReportLayout);
         jpnReportLayout.setHorizontalGroup(
             jpnReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnReportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+            .addGap(0, 488, Short.MAX_VALUE)
         );
         jpnReportLayout.setVerticalGroup(
             jpnReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnReportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(580, Short.MAX_VALUE))
+            .addGap(0, 624, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -121,10 +109,10 @@ public class ThongKePanel extends javax.swing.JPanel {
     private void ShowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowBtnActionPerformed
         controller = new ThongKeController();
         String tieuChi = TieuChiCB.getSelectedItem().toString();
-        
+
         controller.drawChart(DiagramArea, tieuChi);
         DiagramArea.add(jpnReport);
-        
+        controller.addReport(jpnReport, tieuChi);
     }//GEN-LAST:event_ShowBtnActionPerformed
     
     
@@ -134,7 +122,6 @@ public class ThongKePanel extends javax.swing.JPanel {
     private javax.swing.JButton ShowBtn;
     private javax.swing.JComboBox<String> TieuChiCB;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jpnReport;
     // End of variables declaration//GEN-END:variables
 }
