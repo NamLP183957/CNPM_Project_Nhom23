@@ -6,6 +6,7 @@
 package views;
 
 import controllers.TimKiemController;
+import controllers.XemPAController;
 import java.awt.BorderLayout;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     private ArrayList<PhanAnh> listSearchState=new ArrayList<>();
     private ArrayList<PhanAnh> listSearchName=new ArrayList<>();
     DefaultTableModel model;
+    
      public PhanAnhPanel(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
@@ -51,6 +53,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         jButtonDelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         thongTinPhanAnh = new javax.swing.JTable();
+        btnDetailView = new javax.swing.JButton();
 
         jComboBoxState.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mới ghi nhận", "Đang giải quyết", "Đã giải quyết" }));
@@ -88,6 +91,11 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         });
 
         jButtonChange.setText("Sửa phản ánh");
+        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangeActionPerformed(evt);
+            }
+        });
 
         jButtonInsert.setText("Thêm phản ánh");
         jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -121,6 +129,13 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(thongTinPhanAnh);
 
+        btnDetailView.setText("Xem Chi Tiết");
+        btnDetailView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetailViewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,9 +157,11 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnDetailView, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
@@ -157,7 +174,9 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                         .addGap(62, 62, 62)
                         .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
-                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -169,7 +188,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,8 +267,31 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         this.removeAll();
         this.setLayout(new BorderLayout());
-        this.add(new ThemPAPanel(parentFrame));   
+        this.add(new ThemPAPanel(parentFrame));
+        this.validate();
+        this.repaint();
     }//GEN-LAST:event_jButtonInsertActionPerformed
+
+    private void btnDetailViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailViewActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedIndex = thongTinPhanAnh.getSelectedRow();
+        if (selectedIndex >= 0) {
+            PhanAnh phanAnh = listSearchName.get(selectedIndex);
+            XemPAPanel xemPAPanel = new XemPAPanel(this.parentFrame);
+            XemPAController xemPAController = new XemPAController(phanAnh, xemPAPanel);
+            
+            this.removeAll();
+            this.setLayout(new BorderLayout());
+            this.add(xemPAController.getPanel());
+            this.validate();
+            this.repaint();
+        }
+    }//GEN-LAST:event_btnDetailViewActionPerformed
+
+    private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonChangeActionPerformed
     
     public void showResultByDate(){
         if(listSearchDate.isEmpty())  JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
@@ -281,6 +323,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDetailView;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonChange;
     private javax.swing.JButton jButtonDelete;

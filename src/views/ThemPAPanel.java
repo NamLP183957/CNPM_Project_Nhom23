@@ -257,6 +257,8 @@ public class ThemPAPanel extends javax.swing.JPanel {
         this.removeAll();
         this.setLayout(new BorderLayout());
         this.add(new PhanAnhPanel(parentFrame));
+        this.validate();
+        this.repaint();
     }//GEN-LAST:event_btnBackActionPerformed
 
 
