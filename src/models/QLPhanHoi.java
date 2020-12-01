@@ -10,42 +10,38 @@ package models;
  * @author Vostro 3580
  */
 public class QLPhanHoi {
-    private String maPH;
-    private String ngLienHe;
-    private String ngayPH;
+    private int maPhanHoi;
+    private String ngayPhanHoi;
+    private String nguoiLienQuan;
     private String noiDung;
     private String coQuan;
     
-    public QLPhanHoi(String maPH, String ngLienHe, String ngayPH, String noiDung, String coQuan){
-        this.maPH=maPH;
-        this.ngLienHe=ngLienHe;
-        this.ngayPH=ngayPH;
-        this.noiDung=noiDung;
-        this.coQuan=coQuan;
+    public QLPhanHoi(){
+        
     }
 
-    public String getMaPH() {
-        return maPH;
+    public int getMaPhanHoi() {
+        return maPhanHoi;
     }
 
-    public void setMaPH(String maPH) {
-        this.maPH = maPH;
+    public void setMaPhanHoi(int maPhanHoi) {
+        this.maPhanHoi = maPhanHoi;
     }
 
-    public String getNgLienHe() {
-        return ngLienHe;
+    public String getNgayPhanHoi() {
+        return ngayPhanHoi;
     }
 
-    public void setNgLienHe(String ngLienHe) {
-        this.ngLienHe = ngLienHe;
+    public void setNgayPhanHoi(String ngayPhanHoi) {
+        this.ngayPhanHoi = ngayPhanHoi;
     }
 
-    public String getNgayPH() {
-        return ngayPH;
+    public String getNguoiLienQuan() {
+        return nguoiLienQuan;
     }
 
-    public void setNgayPH(String ngayPH) {
-        this.ngayPH = ngayPH;
+    public void setNguoiLienQuan(String nguoiLienQuan) {
+        this.nguoiLienQuan = nguoiLienQuan;
     }
 
     public String getNoiDung() {
