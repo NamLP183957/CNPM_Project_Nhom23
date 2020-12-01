@@ -9,7 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import service.SQLConnection;
+import service.MySQLConnection;
 import models.QLPhanHoi;
 /**
  *
@@ -21,7 +21,7 @@ public class QLPhanHoiModify {
         Statement st=null;
         ResultSet rs=null;
         try{
-            conn=new SQLConnection().Connect();
+            conn = MySQLConnection.getMySQLConnection();
             String sql=null;
             st=conn.createStatement();
             if(data.length()>0){
@@ -48,7 +48,7 @@ public class QLPhanHoiModify {
         Statement st=null;
         ResultSet rs=null;
         try{
-            conn=new SQLConnection().Connect();
+            conn = MySQLConnection.getMySQLConnection();
             String sql="select * from PhanHoi where MA_PHAN_HOI="+data;
             st=conn.createStatement();
             rs=st.executeQuery(sql);
@@ -64,7 +64,7 @@ public class QLPhanHoiModify {
         ResultSet rs=null;
         Statement st=null;
         try{
-            conn=new SQLConnection().Connect();
+            conn = MySQLConnection.getMySQLConnection();
             String sql="select * from PhanHoi where MA_PHAN_HOI="+data;
             st=conn.createStatement();
             rs=st.executeQuery(sql);
@@ -80,7 +80,7 @@ public class QLPhanHoiModify {
         PreparedStatement ps=null;
         int ret=-1;
         try{
-        conn=new SQLConnection().Connect();
+        conn = MySQLConnection.getMySQLConnection();
         String sql= "insert into PhanHoi values (?,?,?,?,?)";
         ps=conn.prepareStatement(sql);
         ps.setInt(1,ph.getMaPhanHoi());
@@ -113,7 +113,7 @@ public class QLPhanHoiModify {
         Statement st=null;
         ResultSet rs=null;
         try{
-            conn=new SQLConnection().Connect();
+            conn = MySQLConnection.getMySQLConnection();
             st=conn.createStatement();
             String sql="select * from PHAN_ANH";
             rs=st.executeQuery(sql);
