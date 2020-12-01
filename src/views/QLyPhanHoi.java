@@ -10,6 +10,7 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import controllers.QLPhanHoiModify;
+import javax.swing.JFrame;
 
 
 /**
@@ -17,11 +18,14 @@ import controllers.QLPhanHoiModify;
  * @author Vostro 3580
  */
 public class QLyPhanHoi extends javax.swing.JPanel {
+    
+    JFrame parentFrame;
 
     /**
      * Creates new form QLyPhanHoi
      */
-    public QLyPhanHoi() {
+    public QLyPhanHoi(JFrame parentFrame) {
+        this.parentFrame = parentFrame;
         initComponents();
     }
 

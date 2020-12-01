@@ -6,6 +6,7 @@
 package views;
 
 import controllers.PhanAnhModify;
+import java.awt.BorderLayout;
 import java.sql.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -106,6 +107,11 @@ public class ThemPAPanel extends javax.swing.JPanel {
         });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -245,6 +251,13 @@ public class ThemPAPanel extends javax.swing.JPanel {
         cbType.setSelectedIndex(0);
         cbState.setSelectedIndex(0);
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        this.add(new PhanAnhPanel(parentFrame));
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -222,6 +222,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#xea;m ph&#x1ea3;n &#xe1;nh"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonInsertActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonDelete">
       <Properties>

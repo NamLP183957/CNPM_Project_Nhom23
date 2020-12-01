@@ -6,6 +6,7 @@
 package views;
 
 import controllers.TimKiemController;
+import java.awt.BorderLayout;
 import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -89,6 +90,11 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         jButtonChange.setText("Sửa phản ánh");
 
         jButtonInsert.setText("Thêm phản ánh");
+        jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInsertActionPerformed(evt);
+            }
+        });
 
         jButtonDelete.setText("Xóa phản ánh");
 
@@ -237,6 +243,14 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     private void thongTinPhanAnhComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_thongTinPhanAnhComponentHidden
         // TODO add your handling code here:
     }//GEN-LAST:event_thongTinPhanAnhComponentHidden
+
+    private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertActionPerformed
+        // TODO add your handling code here:
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        this.add(new ThemPAPanel(parentFrame));   
+    }//GEN-LAST:event_jButtonInsertActionPerformed
+    
     public void showResultByDate(){
         if(listSearchDate.isEmpty())  JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
         for (int i = 0; i < listSearchDate.size(); i++) {

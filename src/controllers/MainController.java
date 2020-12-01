@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import views.HomePagePanel;
+import views.PhanAnhPanel;
 import views.ThemPAPanel;
 import views.ThongKePanel;
 import views.QLyPhanHoi;
@@ -47,12 +48,10 @@ public class MainController {
                 view = new ThongKePanel(this.jfrMain);
                 break;
             case "PhanAnh":
-                //view = new // PhanAnhPanel(this.jfrMain);
-                view = new ThemPAPanel(this.jfrMain);
-                
+                view = new PhanAnhPanel(this.jfrMain);               
                 break;
             case "PhanHoi":
-                view = new  QLyPhanHoi();
+                view = new  QLyPhanHoi(this.jfrMain);
                 break;
             default:
                 break;
@@ -114,11 +113,10 @@ public class MainController {
                     view = new ThongKePanel(this.jfrMain);
                     break;
                 case "PhanAnh":
-                    //view = new // PhanAnhPanel(this.jfrMain);
-                    view = new ThemPAPanel(this.jfrMain);
+                    view = new PhanAnhPanel(this.jfrMain);
                     break;
                 case "PhanHoi":
-                   // view = new // PhanHoiPhanel(this.jfrMain);
+                    view = new QLyPhanHoi(this.jfrMain);
                     break;
                 default: 
                     break;
