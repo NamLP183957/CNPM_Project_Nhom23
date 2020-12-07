@@ -23,9 +23,8 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     JFrame parentFrame;
     private TimKiemController control=new TimKiemController();
-    private ArrayList<PhanAnh> listSearchDate=new ArrayList<>();
-    private ArrayList<PhanAnh> listSearchState=new ArrayList<>();
-    private ArrayList<PhanAnh> listSearchName=new ArrayList<>();
+    private ArrayList<PhanAnh> listSearch=new ArrayList<>();
+    
     DefaultTableModel model;
     
      public PhanAnhPanel(JFrame parentFrame) {
@@ -208,8 +207,9 @@ public class PhanAnhPanel extends javax.swing.JPanel {
             listSearchDate.add(a);
             listSearchDate.add(b);
             */
-            if (state=="Tất cả") {listSearchState=control.getAllPhanAnh(); System.out.println(listSearchState.size());}
-            else {listSearchState=control.getPhanAnhByState(state);}
+            if (state=="Tất cả") {listSearch=control.getAllPhanAnh(); 
+            System.out.println(listSearch.size());}
+            else {listSearch=control.getPhanAnhByState(state);}
             model=(DefaultTableModel) thongTinPhanAnh.getModel();
             model.setRowCount(0);
             showResult();
@@ -219,8 +219,8 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String nameSearch=null;
         nameSearch=jTextName.getText();
-        listSearchName=null;
-        listSearchName =control.getPhanAnhByName(nameSearch);
+        listSearch=null;
+        listSearch =control.getPhanAnhByName(nameSearch);
 
         // System.out.println("length="+listSearchName.size());
         model=new DefaultTableModel();
@@ -239,18 +239,52 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         int year1=Integer.parseInt(year);
         int month1=Integer.parseInt(month);
         switch(month1){
-               case 4: if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 4 chỉ có 30 ngày");test=false;break;}
-               case 6: if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 6 chỉ có 30 ngày");test=false;break;};
-               case 9:  if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 9 chỉ có 30 ngày");test=false;break;};
-               case 11: if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 11 chỉ có 30 ngày");test=false;break;};
-               case 2: {if(!checkYear(year1) &&(day1>=29)){JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm không nhuận chỉ có 28 ngày");test=false;break;}
-                        if (checkYear(year1) &&(day1>=30)){JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm  nhuận chỉ có 29 ngày");test=false;break;}
+               case 4: 
+                   if (day1==31) 
+                   {
+                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 4 chỉ có 30 ngày");
+                       test=false;
+                       break;
+                   }
+               case 6:
+                   if (day1==31)
+                   {
+                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 6 chỉ có 30 ngày");
+                       test=false;
+                       break;
+                   };
+               case 9: 
+                   if (day1==31) 
+                   {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 9 chỉ có 30 ngày");
+                   test=false;
+                   break;
+                   };
+               case 11:
+                   if (day1==31)
+                   {
+                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 11 chỉ có 30 ngày");
+                       test=false;
+                       break;
+                   };
+               case 2:
+                    {if(!checkYear(year1) &&(day1>=29))
+                    {
+                        JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm không nhuận chỉ có 28 ngày");
+                        test=false;
+                        break;
+                    }
+                    if (checkYear(year1) &&(day1>=30))
+                    {
+                        JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm  nhuận chỉ có 29 ngày");
+                        test=false;
+                        break;
+                    }
                };
         }
           if (test){
             Date date=Date.valueOf(year+"-"+month+"-"+day);
             //System.out.println(date);
-            listSearchDate=control.getPhanAnhByDate(date);
+            listSearch=control.getPhanAnhByDate(date);
             model=(DefaultTableModel) thongTinPhanAnh.getModel();
             model=(DefaultTableModel) thongTinPhanAnh.getModel();
             model.setRowCount(0);
@@ -277,7 +311,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         
         int selectedIndex = thongTinPhanAnh.getSelectedRow();
         if (selectedIndex >= 0) {
-            PhanAnh phanAnh = listSearchName.get(selectedIndex);
+            PhanAnh phanAnh = listSearch.get(selectedIndex);
             XemPAPanel xemPAPanel = new XemPAPanel(this.parentFrame);
             XemPAController xemPAController = new XemPAController(phanAnh, xemPAPanel);
             
@@ -294,9 +328,10 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonChangeActionPerformed
     
     public void showResultByDate(){
-        if(listSearchDate.isEmpty())  JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
-        for (int i = 0; i < listSearchDate.size(); i++) {
-            model.addRow(new Object[]{listSearchDate.get(i).getId(),listSearchDate.get(i).getName(),listSearchDate.get(i).getContent(),listSearchDate.get(i).getDate(),listSearchDate.get(i).getType(),listSearchDate.get(i).getState()});   
+        if(listSearch.isEmpty())
+            JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
+        for (int i = 0; i < listSearch.size(); i++) {
+            model.addRow(new Object[]{listSearch.get(i).getId(),listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
         }
     }
     
@@ -308,17 +343,18 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     
     public void showResultByName(){
         
-        for (int i = 0; i < listSearchName.size(); i++) {
+        for (int i = 0; i < listSearch.size(); i++) {
            
-            model.addRow(new Object[]{listSearchName.get(i).getId(),listSearchName.get(i).getName(),listSearchName.get(i).getContent(),listSearchName.get(i).getDate(),listSearchName.get(i).getType(),listSearchName.get(i).getState()});   
+            model.addRow(new Object[]{listSearch.get(i).getId(),listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
         }
        
     }
     public void showResult(){
-            if(listSearchState.isEmpty())  JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
+            if(listSearch.isEmpty()) 
+                JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
             //System.out.println(listSearchState.size());
-            for (int i = 0; i < listSearchState.size(); i++) {
-                model.addRow(new Object[]{listSearchState.get(i).getId(),listSearchState.get(i).getName(),listSearchState.get(i).getContent(),listSearchState.get(i).getDate(),listSearchState.get(i).getType(),listSearchState.get(i).getState()});   
+            for (int i = 0; i < listSearch.size(); i++) {
+                model.addRow(new Object[]{listSearch.get(i).getId(),listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
             }
     }
 
