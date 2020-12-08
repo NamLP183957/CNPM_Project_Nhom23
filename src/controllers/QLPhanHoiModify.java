@@ -10,10 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import service.MySQLConnection;
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 import models.QLPhanHoi;
->>>>>>> 0e55e1b2e4e76a5cb3dc9726421596c66e38a2ff
+//>>>>>>> 0e55e1b2e4e76a5cb3dc9726421596c66e38a2ff
 /**
  *
  * @author Vostro 3580

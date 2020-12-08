@@ -24,7 +24,7 @@ public class loginController {
         //tìm kiếm phản ánh theo ngày
         public static ArrayList<Account> getAccount() {
             ArrayList<Account> list = new ArrayList<>();
-            Connection conn=MySQLConnection.getMySQLConnection();
+            Connection conn = MySQLConnection.getMySQLConnection();
             String select = "select * from tai_khoan ";
             try (
                 PreparedStatement ps = conn.prepareStatement(select)) {

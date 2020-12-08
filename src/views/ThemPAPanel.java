@@ -57,56 +57,78 @@ public class ThemPAPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1126, 838));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Thêm Phản Ánh"));
 
+        lbName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbName.setText("Người Phản Ánh:");
 
-        txtName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        lbDay.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbDay.setText("Ngày:");
 
+        lbMonth.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbMonth.setText("Tháng:");
 
+        lbYear.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbYear.setText("Năm:");
 
+        cbDay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
+        cbMonth.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
+        cbYear.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2031", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
+        lbType.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbType.setText("Lĩnh Vực:");
 
+        cbType.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Môi trường", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Lĩnh vực khác" }));
 
+        lbState.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbState.setText("Trạng Thái:");
 
+        cbState.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang giải quyết", "Đã giải quyết" }));
 
+        lbContent.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbContent.setText("Nội Dung:");
 
         txtContent.setColumns(20);
-        txtContent.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txtContent.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtContent.setRows(1000);
+        txtContent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txtContent);
 
+        btnCreate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnCreate.setText("Create");
+        btnCreate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
 
+        btnReset.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnReset.setText("Reset");
+        btnReset.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -132,11 +154,11 @@ public class ThemPAPanel extends javax.swing.JPanel {
                                 .addComponent(lbState, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(lbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(30, 30, 30)
-                                        .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(64, 64, 64)
@@ -160,7 +182,7 @@ public class ThemPAPanel extends javax.swing.JPanel {
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(68, 68, 68)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +212,7 @@ public class ThemPAPanel extends javax.swing.JPanel {
                 .addComponent(lbContent, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
