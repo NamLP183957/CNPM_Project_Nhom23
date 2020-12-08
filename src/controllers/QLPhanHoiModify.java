@@ -7,7 +7,7 @@ package controllers;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import service.SQLConnection;
+import service.MySQLConnection;
 /**
  *
  * @author Vostro 3580
@@ -18,7 +18,7 @@ public class QLPhanHoiModify {
         Statement st=null;
         ResultSet rs=null;
         try{
-            conn=new SQLConnection().Connect();
+            conn = MySQLConnection.getMySQLConnection();
             String sql=null;
             st=conn.createStatement();
             if(data.length()>0){

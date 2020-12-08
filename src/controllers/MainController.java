@@ -47,7 +47,7 @@ public class MainController {
                 view = new ThongKePanel(this.jfrMain);
                 break;
             case "PhanAnh":
-                //view = new // PhanAnhPanel(this.jfrMain);
+               // view = new  //PhanAnhPanel(this.jfrMain);
                 view = new ThemPAPanel(this.jfrMain);
                 
                 break;
@@ -118,7 +118,7 @@ public class MainController {
                     view = new ThemPAPanel(this.jfrMain);
                     break;
                 case "PhanHoi":
-                   // view = new // PhanHoiPhanel(this.jfrMain);
+                    view = new  QLyPhanHoi();
                     break;
                 default: 
                     break;
