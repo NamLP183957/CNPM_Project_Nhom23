@@ -10,17 +10,22 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import controllers.QLPhanHoiModify;
+import javax.swing.JFrame;
+
 
 /**
  *
  * @author Vostro 3580
  */
 public class QLyPhanHoi extends javax.swing.JPanel {
+    
+    JFrame parentFrame;
 
     /**
      * Creates new form QLyPhanHoi
      */
-    public QLyPhanHoi() {
+    public QLyPhanHoi(JFrame parentFrame) {
+        this.parentFrame = parentFrame;
         initComponents();
     }
 
@@ -37,14 +42,16 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         combox = new javax.swing.JComboBox<>();
         txtSearch = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSearch = new javax.swing.JTable();
         btnXuatPH = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnGhiNhan = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnSearch.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(102, 0, 102));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,11 +60,20 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         });
 
         combox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        combox.setForeground(new java.awt.Color(204, 0, 204));
+        combox.setForeground(new java.awt.Color(153, 0, 153));
         combox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã phản ánh", "Người phản ánh", "Nội dung" }));
         combox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboxActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 0, 102));
+        jButton1.setText("Show");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -70,9 +86,11 @@ public class QLyPhanHoi extends javax.swing.JPanel {
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(combox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(btnSearch)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,7 +99,8 @@ public class QLyPhanHoi extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -94,7 +113,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã phản ánh", "Người phản ánh", "Nội dung", "Ngày phản ánh", "Phân loại", "Trạng tháii"
+                "Mã phản ánh", "Người phản ánh", "Nội dung", "Ngày phản ánh", "Phân loại", "Trạng thái"
             }
         ));
         jScrollPane1.setViewportView(tableSearch);
@@ -102,10 +121,20 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         btnXuatPH.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnXuatPH.setForeground(new java.awt.Color(102, 0, 102));
         btnXuatPH.setText("Xuất phản hồi");
+        btnXuatPH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatPHActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 0, 102));
-        jButton2.setText("Ghi nhận phản hồi");
+        btnGhiNhan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnGhiNhan.setForeground(new java.awt.Color(102, 0, 102));
+        btnGhiNhan.setText("Ghi nhận phản hồi");
+        btnGhiNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGhiNhanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -119,10 +148,10 @@ public class QLyPhanHoi extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
+                        .addGap(241, 241, 241)
                         .addComponent(btnXuatPH, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43)
+                        .addComponent(btnGhiNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,10 +161,10 @@ public class QLyPhanHoi extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnXuatPH, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGhiNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXuatPH, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -187,12 +216,93 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_comboxActionPerformed
 
+    private void btnXuatPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatPHActionPerformed
+        // TODO add your handling code here:
+       
+        ResultSet rs=null;
+        try{
+            int selected=tableSearch.getSelectedRow();
+            if(selected==-1){
+                JOptionPane.showMessageDialog(this, "Chưa có hàng nào được chọn !");
+                return;
+            }else{
+                String data=tblModel.getValueAt(selected, 0).toString();
+                rs= new QLPhanHoiModify().XuatPH(data);
+                if(rs.isBeforeFirst()==false){
+                    JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
+                    return;
+                }else{
+                    String maPH=null, ngayPH=null, ngLQ=null, nd=null, cQ=null;
+                    while(rs.next()){
+                        maPH=String.valueOf(rs.getInt("MA_PHAN_HOI"));
+                        ngayPH=String.valueOf(rs.getDate("NGAY_PHAN_HOI"));
+                        ngLQ=String.valueOf(rs.getString("NGUOI_LIEN_QUAN"));
+                        nd=String.valueOf(rs.getString("NOI_DUNG"));
+                        cQ=String.valueOf(rs.getString("CO_QUAN"));
+                    }
+
+                    new XuatPhanHoiFrame(maPH, ngayPH, ngLQ, nd, cQ).setVisible(true);   
+                }
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnXuatPHActionPerformed
+
+    private void btnGhiNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGhiNhanActionPerformed
+        // TODO add your handling code here:
+        int selected= tableSearch.getSelectedRow();
+        if(selected==-1){
+            JOptionPane.showMessageDialog(this, "Không có hàng nào được chọn !");
+            return;
+        }else{
+            String maPA=tblModel.getValueAt(selected, 0).toString();
+           try{
+                ResultSet rs=new QLPhanHoiModify().GhiNhanPhanHoi(maPA);
+                if(rs.isBeforeFirst()){
+                   JOptionPane.showMessageDialog(this, "Phản hồi này đã được ghi nhận, bấm xem phản hồi !");
+                   return;
+                }else{
+                    new GhiNhanPhanHoiFrame(maPA).setVisible(true);
+                }
+           }catch(Exception ex){
+               ex.printStackTrace();
+           }
+        }
+        
+    }//GEN-LAST:event_btnGhiNhanActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ResultSet rs=null;
+        try{
+            rs= new QLPhanHoiModify().Show();
+            Vector data=null;
+            tblModel.setRowCount(0);
+            while(rs.next()){
+                data=new Vector();
+                data.add(rs.getInt("MA_PHAN_ANH"));
+                data.add(rs.getString("NGUOI_PHAN_ANH"));
+                data.add(rs.getString("NOI_DUNG"));
+                data.add(rs.getDate("NGAY_PHAN_ANH"));
+                data.add(rs.getString("PHAN_LOAI"));
+                data.add(rs.getString("TRANG_THAI"));
+                tblModel.addRow(data);
+            }
+            tableSearch.setModel(tblModel);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGhiNhan;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnXuatPH;
     private javax.swing.JComboBox<String> combox;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableSearch;

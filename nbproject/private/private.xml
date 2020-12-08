@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/views/ThemPAPanel.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/views/MainFrame.java</file>
+=======
+            <file>file:/D:/NetBeansProjects/QuanLyPA/src/controllers/MainController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPA/src/views/XemPAPanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPA/src/views/PhanAnhPanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPA/src/views/ThemPAPanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPA/src/views/MainFrame.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPA/src/controllers/XemPAController.java</file>
+>>>>>>> 0e55e1b2e4e76a5cb3dc9726421596c66e38a2ff
         </group>
     </open-files>
 </project-private>
