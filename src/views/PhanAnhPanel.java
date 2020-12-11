@@ -339,6 +339,18 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
         // TODO add your handling code here:
+        int rowselected = thongTinPhanAnh.getSelectedRow();
+        if(rowselected==-1){
+            JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để thay đổi");
+            return;
+        }
+        PhanAnh pa = listSearch.get(rowselected);
+        System.out.print(pa.getId());
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        this.add(new SuaPAPanel(parentFrame,pa));
+        this.validate();
+        this.repaint();
     }//GEN-LAST:event_jButtonChangeActionPerformed
     
     public void showResultByDate(){
