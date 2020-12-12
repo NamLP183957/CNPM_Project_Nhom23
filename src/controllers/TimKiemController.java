@@ -32,7 +32,7 @@ public class TimKiemController {
                     pa.setType(rs.getString("PHAN_LOAI"));
                     pa.setState(rs.getString("TRANG_THAI"));
                     list.add(pa);
-                   System.out.println(pa.getId()+pa.getName()+pa.getState());
+                   //System.out.println(pa.getId()+pa.getName()+pa.getState());
 
                 }
             } catch (Exception e) {
@@ -58,7 +58,7 @@ public class TimKiemController {
                     pa.setType(rs.getString("PHAN_LOAI"));
                     pa.setState(rs.getString("TRANG_THAI"));
                     list.add(pa);
-                    System.out.println(pa.getId()+pa.getName()+pa.getState());
+                    //System.out.println(pa.getId()+pa.getName()+pa.getState());
                 }
             } catch (Exception e) {
             }
@@ -83,7 +83,7 @@ public class TimKiemController {
                     pa.setType(rs.getString("PHAN_LOAI"));
                     pa.setState(rs.getString("TRANG_THAI"));
                      list.add(pa);
-                    System.out.println(pa.getId()+pa.getName()+pa.getContent()+pa.getDate()+pa.getType()+pa.getState());
+                    //System.out.println(pa.getId()+pa.getName()+pa.getContent()+pa.getDate()+pa.getType()+pa.getState());
                 }
             } catch (Exception e) {
             }
@@ -108,7 +108,52 @@ public class TimKiemController {
                     pa.setType(rs.getString("PHAN_LOAI"));
                     pa.setState(rs.getString("TRANG_THAI"));
                     list.add(pa);
-                    System.out.println(pa.getId()+pa.getName()+pa.getDate());
+                    //System.out.println(pa.getId()+pa.getName()+pa.getDate());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return list;
+          }
+        public ArrayList<PhanAnh> getPhanAnhByLinhVuc(String linhVuc) {
+            ArrayList<PhanAnh> list = new ArrayList<>();
+            Connection conn=MySQLConnection.getMySQLConnection();
+            String select = "select * from phan_anh where PHAN_LOAI ='"+ linhVuc+"'";
+            try (
+                PreparedStatement ps = conn.prepareStatement(select)) {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    PhanAnh pa = new PhanAnh();
+                    pa.setId(rs.getInt("MA_PHAN_ANH"));
+                    pa.setName(rs.getString("NGUOI_PHAN_ANH"));
+                    pa.setContent(rs.getString("NOI_DUNG"));
+                    pa.setDate(rs.getDate("NGAY_PHAN_ANH"));
+                    pa.setType(rs.getString("PHAN_LOAI"));
+                    pa.setState(rs.getString("TRANG_THAI"));
+                    list.add(pa);
+                    //System.out.println(pa.getId()+pa.getName()+pa.getDate());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return list;
+          }
+        public ArrayList<PhanAnh> getPhanAnhByAll(String state,String linhVuc,String name) {
+            ArrayList<PhanAnh> list = new ArrayList<>();
+            Connection conn=MySQLConnection.getMySQLConnection();
+            String select = "select * from phan_anh where PHAN_LOAI LIKE '%"+ linhVuc+"%' and TRANG_THAI LIKE'%"+state+"%' and NGUOI_PHAN_ANH LIKE '%"+ name+ "%'";
+            try (
+                PreparedStatement ps = conn.prepareStatement(select)) {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    PhanAnh pa = new PhanAnh();
+                    pa.setId(rs.getInt("MA_PHAN_ANH"));
+                    pa.setName(rs.getString("NGUOI_PHAN_ANH"));
+                    pa.setContent(rs.getString("NOI_DUNG"));
+                    pa.setDate(rs.getDate("NGAY_PHAN_ANH"));
+                    pa.setType(rs.getString("PHAN_LOAI"));
+                    pa.setState(rs.getString("TRANG_THAI"));
+                    list.add(pa);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
