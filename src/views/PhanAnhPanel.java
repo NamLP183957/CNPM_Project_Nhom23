@@ -5,6 +5,7 @@
  */
 package views;
 
+import controllers.SuaPAController;
 import controllers.TimKiemController;
 import controllers.XemPAController;
 import java.awt.BorderLayout;
@@ -99,6 +100,11 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         jButtonDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonDelete.setText("Xóa phản ánh");
         jButtonDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
 
         thongTinPhanAnh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         thongTinPhanAnh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -169,9 +175,8 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -264,6 +269,18 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
         // TODO add your handling code here:
+        int rowselected = thongTinPhanAnh.getSelectedRow();
+        if(rowselected==-1){
+            JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để thay đổi");
+            return;
+        }
+        PhanAnh pa = listSearch.get(rowselected);
+        System.out.print(pa.getId());
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        this.add(new SuaPAPanel(parentFrame,pa));
+        this.validate();
+        this.repaint();
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jComboBoxLinhVucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLinhVucActionPerformed
@@ -284,6 +301,19 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         
     }//GEN-LAST:event_formComponentHidden
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+        int rowselected = thongTinPhanAnh.getSelectedRow();
+        if(rowselected==-1){
+            JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để xoá");
+            return;
+        }
+        SuaPAController.deletePhanAnh(listSearch.get(rowselected).getId());
+        thongTinPhanAnh.remove(rowselected);
+        listSearch.remove(rowselected);
+        JOptionPane.showMessageDialog(this, "đã xóa phản ánh thành công");
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
     
     public void showResultByDate(){
         if(listSearch.isEmpty())

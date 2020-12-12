@@ -47,10 +47,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnDetailView" min="-2" pref="154" max="-2" attributes="0"/>
-                      <Component id="jButtonDelete" min="-2" pref="154" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnDetailView" min="-2" pref="154" max="-2" attributes="0"/>
+                  <Component id="jButtonDelete" min="-2" pref="154" max="-2" attributes="0"/>
                   <Component id="jButtonInsert" min="-2" pref="151" max="-2" attributes="0"/>
                   <Component id="jButtonChange" min="-2" pref="154" max="-2" attributes="0"/>
               </Group>
@@ -171,6 +169,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
