@@ -282,71 +282,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBoxLinhVucActionPerformed
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
-        //tim kiem theo ngay/thang/nam
-        /*JTextField jComboBoxDay = null,jComboBoxMonth = null,jComboBoxYear = null;
-        String day=jComboBoxDay.getText();
-        String month=jComboBoxMonth.toString();
-        String year=jComboBoxYear.toString();
-        Boolean test=true;
-        int day1=Integer.parseInt(day);
-        int year1=Integer.parseInt(year);
-        int month1=Integer.parseInt(month);
-        switch(month1){
-               case 4: 
-                   if (day1==31) 
-                   {
-                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 4 chỉ có 30 ngày");
-                       test=false;
-                       break;
-                   }
-               case 6:
-                   if (day1==31)
-                   {
-                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 6 chỉ có 30 ngày");
-                       test=false;
-                       break;
-                   };
-               case 9: 
-                   if (day1==31) 
-                   {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 9 chỉ có 30 ngày");
-                   test=false;
-                   break;
-                   };
-               case 11:
-                   if (day1==31)
-                   {
-                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 11 chỉ có 30 ngày");
-                       test=false;
-                       break;
-                   };
-               case 2:
-                    {if(!checkYear(year1) &&(day1>=29))
-                    {
-                        JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm không nhuận chỉ có 28 ngày");
-                        test=false;
-                        break;
-                    }
-                    if (checkYear(year1) &&(day1>=30))
-                    {
-                        JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm  nhuận chỉ có 29 ngày");
-                        test=false;
-                        break;
-                    }
-               };
-        }
-          if (test){
-            Date date=Date.valueOf(year+"-"+month+"-"+day);
-            //System.out.println(date);
-            listSearch=control.getPhanAnhByDate(date);
-            model=(DefaultTableModel) thongTinPhanAnh.getModel();
-            model=(DefaultTableModel) thongTinPhanAnh.getModel();
-            model.setRowCount(0);
-            
-            showResultByDate();
-        }
-        String state=jComboBoxState.getSelectedItem().toString();
-        String linhVuc=jComboBoxLinhVuc.getSelectedItem().toString();
-        String name=jTextName.getText();*/
+        
     }//GEN-LAST:event_formComponentHidden
     
     public void showResultByDate(){
