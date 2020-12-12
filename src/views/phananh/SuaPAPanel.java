@@ -62,32 +62,44 @@ public class SuaPAPanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1156, 838));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sửa phản ánh"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sửa phản ánh", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
 
+        lbName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbName.setText("Người Phản Ánh:");
 
         nameTextFiled.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
+        lbDay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbDay.setText("Ngày:");
 
+        lbMonth.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbMonth.setText("Tháng:");
 
+        lbYear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbYear.setText("Năm:");
 
+        dateComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         dateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
+        monthComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
+        yearComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2031", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
+        lbType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbType.setText("Lĩnh Vực:");
 
+        typeComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Môi trường", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Tôn giáo tín ngưỡng", "Thi đua khen thưởng", "Văn hóa lễ hội", "Kinh doanh", "Thi hành pháp luật", "Lĩnh vực khác" }));
 
+        lbState.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbState.setText("Trạng Thái:");
 
+        stateComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         stateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chờ tiếp nhận", "Đang giải quyết", "Đã giải quyết", "Từ chối tiếp nhận", "Bị trả lại", "Chờ bổ sung" }));
 
+        lbContent.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbContent.setText("Nội Dung:");
 
         contentTextFiled.setColumns(20);
@@ -95,6 +107,7 @@ public class SuaPAPanel extends javax.swing.JPanel {
         contentTextFiled.setRows(1000);
         jScrollPane1.setViewportView(contentTextFiled);
 
+        saveButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +115,7 @@ public class SuaPAPanel extends javax.swing.JPanel {
             }
         });
 
+        backButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +197,7 @@ public class SuaPAPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(lbContent, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)

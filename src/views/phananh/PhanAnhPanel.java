@@ -5,10 +5,9 @@
  */
 package views.phananh;
 
-import controllers.SuaPAController;
 import controllers.TimKiemController;
+import controllers.phananh.SuaPAController;
 import controllers.phananh.XemPAController;
-import controllers.phananh.XoaPAController;
 import java.awt.BorderLayout;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -276,18 +275,6 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD:src/views/phananh/PhanAnhPanel.java
-        int selectedIndex = thongTinPhanAnh.getSelectedRow();
-        if (selectedIndex >= 0) {
-            PhanAnh phanAnh = listSearch.get(selectedIndex);
-            this.removeAll();
-            this.setLayout(new BorderLayout());
-            this.add(new SuaPAPanel(parentFrame, phanAnh));
-            this.validate();
-            this.repaint();
-            
-        }
-=======
         int rowselected = thongTinPhanAnh.getSelectedRow();
         if(rowselected==-1){
             JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để thay đổi");
@@ -300,7 +287,6 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         this.add(new SuaPAPanel(parentFrame,pa));
         this.validate();
         this.repaint();
->>>>>>> 1e312cb17877aba270de10dc47d283debf5f019f:src/views/PhanAnhPanel.java
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jComboBoxLinhVucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLinhVucActionPerformed
@@ -324,34 +310,22 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD:src/views/phananh/PhanAnhPanel.java
         int selectedIndex = thongTinPhanAnh.getSelectedRow();
+
         if (selectedIndex >= 0) {
             PhanAnh phanAnh = listSearch.get(selectedIndex);
             
             int option = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa phản ánh này?");
             
             if (option == 0) {
-                XoaPAController.delete(phanAnh.getId());
+                SuaPAController.deletePhanAnh(phanAnh.getId());
                 listSearch.remove(phanAnh);
                 model.setRowCount(0);
                 showResult();
             }
-            
-            
-            
+        } else {
+            JOptionPane.showMessageDialog(this, "Chọn một phản ánh để xóa");
         }
-=======
-        int rowselected = thongTinPhanAnh.getSelectedRow();
-        if(rowselected==-1){
-            JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để xoá");
-            return;
-        }
-        SuaPAController.deletePhanAnh(listSearch.get(rowselected).getId());
-        thongTinPhanAnh.remove(rowselected);
-        listSearch.remove(rowselected);
-        JOptionPane.showMessageDialog(this, "đã xóa phản ánh thành công");
->>>>>>> 1e312cb17877aba270de10dc47d283debf5f019f:src/views/PhanAnhPanel.java
     }//GEN-LAST:event_jButtonDeleteActionPerformed
     
     public void showResultByDate(){

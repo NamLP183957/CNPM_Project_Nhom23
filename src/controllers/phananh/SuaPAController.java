@@ -24,9 +24,9 @@ public class SuaPAController {
         try{
             stmt = conn.createStatement();
             stmt.execute(sql);
-        }catch(Exception e){
+        } catch(Exception e) {
             System.out.printf("no connect delete Phan anh");
-        }finally {
+        } finally {
             if (stmt != null) {
                 try {
                     stmt.close();
