@@ -3,23 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.phananh;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.PhanAnh;
 import service.MySQLConnection;
 
 /**
  *
- * @author trado006
+ * @author ADMIN
  */
-public class SuaPAController {
-    public static void updatePhanAnh(PhanAnh pa){
-        System.out.println(pa.toString());
-        String sql = "UPDATE PHAN_ANH SET  NGUOI_PHAN_ANH=?, NOI_DUNG=?, NGAY_PHAN_ANH=?, PHAN_LOAI=?, TRANG_THAI=? WHERE MA_PHAN_ANH=?;";
-        Connection conn = MySQLConnection.getMySQLConnection();
+public class ThemPAController {
+    
+    public static void insert(PhanAnh pa) {
+        Connection conn = null;
+        conn = MySQLConnection.getMySQLConnection();
+        
+        String sql = "INSERT INTO phan_anh (NGUOI_PHAN_ANH, NOI_DUNG, NGAY_PHAN_ANH, PHAN_LOAI, TRANG_THAI) "
+                            + "VALUES (?, ?, ?, ?, ?)";
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement(sql);
@@ -29,17 +35,17 @@ public class SuaPAController {
             stmt.setDate(3, pa.getDate());
             stmt.setString(4, pa.getType());
             stmt.setString(5, pa.getState());
-            stmt.setInt(6,pa.getId());
             
             stmt.execute();
             
         } catch (SQLException ex) {
-            System.out.println("no connect to data base");
+            Logger.getLogger(controllers.phananh.ThemPAController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
+                    Logger.getLogger(controllers.phananh.ThemPAController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
@@ -47,9 +53,10 @@ public class SuaPAController {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    
+                    Logger.getLogger(controllers.phananh.ThemPAController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
     }
+    
 }

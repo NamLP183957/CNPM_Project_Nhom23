@@ -3,29 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.phananh;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import models.PhanAnh;
 import service.MySQLConnection;
 
 /**
  *
- * @author ADMIN
+ * @author trado006
  */
-public class PhanAnhController {
-    
-    public static void insert(PhanAnh pa) {
-        Connection conn = null;
-        conn = MySQLConnection.getMySQLConnection();
-        
-        String sql = "INSERT INTO phan_anh (NGUOI_PHAN_ANH, NOI_DUNG, NGAY_PHAN_ANH, PHAN_LOAI, TRANG_THAI) "
-                            + "VALUES (?, ?, ?, ?, ?)";
+public class SuaPAController {
+    public static void updatePhanAnh(PhanAnh pa){
+        System.out.println(pa.toString());
+        String sql = "UPDATE PHAN_ANH SET  NGUOI_PHAN_ANH=?, NOI_DUNG=?, NGAY_PHAN_ANH=?, PHAN_LOAI=?, TRANG_THAI=? WHERE MA_PHAN_ANH=?;";
+        Connection conn = MySQLConnection.getMySQLConnection();
         PreparedStatement stmt = null;
         try {
             stmt = conn.prepareStatement(sql);
@@ -35,17 +29,17 @@ public class PhanAnhController {
             stmt.setDate(3, pa.getDate());
             stmt.setString(4, pa.getType());
             stmt.setString(5, pa.getState());
+            stmt.setInt(6,pa.getId());
             
             stmt.execute();
             
         } catch (SQLException ex) {
-            Logger.getLogger(controllers.PhanAnhController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("no connect to data base");
         } finally {
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(controllers.PhanAnhController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
@@ -53,10 +47,9 @@ public class PhanAnhController {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(controllers.PhanAnhController.class.getName()).log(Level.SEVERE, null, ex);
+                    
                 }
             }
         }
     }
-    
 }

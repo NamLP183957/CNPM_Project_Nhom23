@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package views.phananh;
 
 import controllers.TimKiemController;
-import controllers.XemPAController;
+import controllers.phananh.XemPAController;
+import controllers.phananh.XoaPAController;
 import java.awt.BorderLayout;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ import models.PhanAnh;
 public class PhanAnhPanel extends javax.swing.JPanel {
 
     JFrame parentFrame;
-    private TimKiemController control=new TimKiemController();
-    private ArrayList<PhanAnh> listSearch=new ArrayList<>();
+    private TimKiemController control = new TimKiemController();
+    private ArrayList<PhanAnh> listSearch = new ArrayList<>();
     
     DefaultTableModel model;
     
@@ -63,7 +64,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         });
 
         jComboBoxState.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mới ghi nhận", "Đang giải quyết", "Đã giải quyết" }));
+        jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Môi trường", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Tôn giáo tín ngưỡng", "Thi đua khen thưởng", "Văn hóa lễ hội", "Kinh doanh", "Thi hành pháp luật", "Lĩnh vực khác" }));
         jComboBoxState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxStateActionPerformed(evt);
@@ -99,6 +100,11 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         jButtonDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonDelete.setText("Xóa phản ánh");
         jButtonDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
 
         thongTinPhanAnh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         thongTinPhanAnh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -118,6 +124,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        thongTinPhanAnh.setRowHeight(28);
         thongTinPhanAnh.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 thongTinPhanAnhComponentHidden(evt);
@@ -134,17 +141,21 @@ public class PhanAnhPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Trạng thái");
 
-        jComboBoxLinhVuc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Môi trường", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Lĩnh vực khác" }));
+        jComboBoxLinhVuc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBoxLinhVuc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Chờ tiếp nhận", "Đang giải quyết", "Đã giải quyết", "Từ chối tiếp nhận", "Bị trả lại", "Chờ bổ sung" }));
         jComboBoxLinhVuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxLinhVucActionPerformed(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Lĩnh vực");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Người phản ánh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -157,24 +168,23 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBoxLinhVuc, 0, 247, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxLinhVuc, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextName)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,21 +209,22 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                         .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxStateActionPerformed
         // TODO add your handling code here:
         String state = jComboBoxState.getSelectedItem().toString();
-        String linhVuc=jComboBoxLinhVuc.getSelectedItem().toString();
-        String name=jTextName.getText();
-        if (state=="Tất cả") state="";
-        if (linhVuc=="Tất cả") linhVuc="";
-        listSearch=null;
-        listSearch= control.getPhanAnhByAll(state, linhVuc,name);
-        model=new DefaultTableModel();
-        model=(DefaultTableModel) thongTinPhanAnh.getModel();
+        String linhVuc = jComboBoxLinhVuc.getSelectedItem().toString();
+        String name = jTextName.getText();
+        if (state == "Tất cả") state = "";
+        if (linhVuc == "Tất cả") linhVuc = "";
+        listSearch = null;
+        listSearch = control.getPhanAnhByAll(state, linhVuc, name);
+        model = new DefaultTableModel();
+        model = (DefaultTableModel) thongTinPhanAnh.getModel();
         model.setRowCount(0);
         showResult();
     }//GEN-LAST:event_jComboBoxStateActionPerformed
@@ -221,14 +232,14 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     private void jTextNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNameKeyPressed
         // TODO add your handling code here:
         String state = jComboBoxState.getSelectedItem().toString();
-        String linhVuc=jComboBoxLinhVuc.getSelectedItem().toString();
-        String name=jTextName.getText();
-        if (state=="Tất cả") state="";
-        if (linhVuc=="Tất cả") linhVuc="";
-        listSearch=null;
-        listSearch= control.getPhanAnhByAll(state, linhVuc,name);
-        model=new DefaultTableModel();
-        model=(DefaultTableModel) thongTinPhanAnh.getModel();
+        String linhVuc = jComboBoxLinhVuc.getSelectedItem().toString();
+        String name = jTextName.getText();
+        if (state == "Tất cả") state = "";
+        if (linhVuc == "Tất cả") linhVuc = "";
+        listSearch = null;
+        listSearch = control.getPhanAnhByAll(state, linhVuc,name);
+        model = new DefaultTableModel();
+        model = (DefaultTableModel) thongTinPhanAnh.getModel();
         model.setRowCount(0);
         showResult();
     }//GEN-LAST:event_jTextNameKeyPressed
@@ -264,18 +275,28 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
         // TODO add your handling code here:
+        int selectedIndex = thongTinPhanAnh.getSelectedRow();
+        if (selectedIndex >= 0) {
+            PhanAnh phanAnh = listSearch.get(selectedIndex);
+            this.removeAll();
+            this.setLayout(new BorderLayout());
+            this.add(new SuaPAPanel(parentFrame, phanAnh));
+            this.validate();
+            this.repaint();
+            
+        }
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jComboBoxLinhVucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLinhVucActionPerformed
         String state = jComboBoxState.getSelectedItem().toString();
-        String linhVuc=jComboBoxLinhVuc.getSelectedItem().toString();
-        String name=jTextName.getText();
-        if (state=="Tất cả") state="";
-        if (linhVuc=="Tất cả") linhVuc="";
-        listSearch=null;
-        listSearch= control.getPhanAnhByAll(state, linhVuc,name);
-        model=new DefaultTableModel();
-        model=(DefaultTableModel) thongTinPhanAnh.getModel();
+        String linhVuc = jComboBoxLinhVuc.getSelectedItem().toString();
+        String name = jTextName.getText();
+        if (state == "Tất cả") state = "";
+        if (linhVuc == "Tất cả") linhVuc = "";
+        listSearch = null;
+        listSearch = control.getPhanAnhByAll(state, linhVuc, name);
+        model = new DefaultTableModel();
+        model = (DefaultTableModel) thongTinPhanAnh.getModel();
         model.setRowCount(0);
         showResult();
                   
@@ -284,6 +305,26 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         
     }//GEN-LAST:event_formComponentHidden
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = thongTinPhanAnh.getSelectedRow();
+        if (selectedIndex >= 0) {
+            PhanAnh phanAnh = listSearch.get(selectedIndex);
+            
+            int option = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa phản ánh này?");
+            
+            if (option == 0) {
+                XoaPAController.delete(phanAnh.getId());
+                listSearch.remove(phanAnh);
+                model.setRowCount(0);
+                showResult();
+            }
+            
+            
+            
+        }
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
     
     public void showResultByDate(){
         if(listSearch.isEmpty())
@@ -308,10 +349,14 @@ public class PhanAnhPanel extends javax.swing.JPanel {
        
     }
     public void showResult(){
-            if(listSearch.isEmpty()) 
-                JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
+//            if(listSearch.isEmpty()) 
+//                JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
             for (int i = 0; i < listSearch.size(); i++) {
-                model.addRow(new Object[]{listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
+                model.addRow(new Object[]{listSearch.get(i).getName(),
+                                            listSearch.get(i).getContent(),
+                                            listSearch.get(i).getDate(),
+                                            listSearch.get(i).getType(),
+                                            listSearch.get(i).getState()});   
             }
     }
 

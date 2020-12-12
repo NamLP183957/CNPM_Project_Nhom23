@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package views.phanhoi;
 
 import java.sql.ResultSet;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import controllers.PhanHoiController;
+import controllers.phanhoi.PhanHoiController;
 import java.awt.BorderLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
@@ -21,13 +21,13 @@ import javax.swing.JFrame;
  *
  * @author Vostro 3580
  */
-public class QLyPhanHoi extends javax.swing.JPanel {
+public class PhanHoiPanel extends javax.swing.JPanel {
 
     JFrame parentFrame;
     /**
      * Creates new form QLyPhanHoi
      */
-    public QLyPhanHoi(JFrame parentFrame) {
+    public PhanHoiPanel(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
     }
@@ -99,7 +99,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
 
         combox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         combox.setForeground(new java.awt.Color(153, 0, 153));
-        combox.setModel(new DefaultComboBoxModel(new PhanHoiController().comboxLinhVuc()));
+        combox.setModel(new DefaultComboBoxModel(new controllers.phanhoi.PhanHoiController().comboxLinhVuc()));
         combox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         combox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

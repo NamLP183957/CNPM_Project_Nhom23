@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package views.phananh;
 
-import controllers.PhanAnhController;
+import controllers.phananh.ThemPAController;
 import java.awt.BorderLayout;
 import java.sql.Date;
 import javax.swing.JFrame;
@@ -58,10 +58,11 @@ public class ThemPAPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1126, 838));
+        setPreferredSize(new java.awt.Dimension(1156, 838));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Thêm Phản Ánh"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thêm Phản Ánh", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(1156, 891));
 
         lbName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbName.setText("Người Phản Ánh:");
@@ -91,20 +92,21 @@ public class ThemPAPanel extends javax.swing.JPanel {
         lbType.setText("Lĩnh Vực:");
 
         cbType.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Môi trường", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Lĩnh vực khác" }));
+        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Môi trường", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Tôn giáo tín ngưỡng", "Thi đua khen thưởng", "Văn hóa lễ hội", "Kinh doanh", "Thi hành pháp luật", "Lĩnh vực khác" }));
 
         lbState.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbState.setText("Trạng Thái:");
 
         cbState.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang giải quyết", "Đã giải quyết" }));
+        cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chờ tiếp nhận", "Đang giải quyết", "Đã giải quyết", "Từ chối tiếp nhận", "Bị trả lại", "Chờ bổ sung" }));
 
         lbContent.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbContent.setText("Nội Dung:");
 
         txtContent.setColumns(20);
-        txtContent.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtContent.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txtContent.setRows(1000);
+        txtContent.setToolTipText("");
         txtContent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txtContent);
 
@@ -183,8 +185,8 @@ public class ThemPAPanel extends javax.swing.JPanel {
                                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(80, 80, 80)
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 143, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(0, 128, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -214,8 +216,8 @@ public class ThemPAPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(lbContent, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,42 +229,28 @@ public class ThemPAPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1126, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        String name = txtName.getText();
-        String content = txtContent.getText();
-        
-        if (name.equals("")) {
-            JOptionPane.showMessageDialog(this, "Chưa nhập tên người phản ánh");
-        } else if (content.equals("")) {
-            JOptionPane.showMessageDialog(this, "Chưa nhập nội dung phản ánh");
-        } else {
-            String day = cbDay.getSelectedItem().toString();
-            String month = cbMonth.getSelectedItem().toString();
-            String year = cbYear.getSelectedItem().toString();
-            
-            Date date = Date.valueOf(year + "-" + month + "-" + day);
-            
-            String type = cbType.getSelectedItem().toString();
-            String state = cbState.getSelectedItem().toString();
-            PhanAnh pa = new PhanAnh(name, content, date, type, state);
-            PhanAnhController.insert(pa);
-            JOptionPane.showMessageDialog(this, "Thêm thành công!");
-        }
-    }//GEN-LAST:event_btnCreateActionPerformed
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        this.add(new PhanAnhPanel(parentFrame));
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
@@ -275,14 +263,29 @@ public class ThemPAPanel extends javax.swing.JPanel {
         cbState.setSelectedIndex(0);
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        this.removeAll();
-        this.setLayout(new BorderLayout());
-        this.add(new PhanAnhPanel(parentFrame));
-        this.validate();
-        this.repaint();
-    }//GEN-LAST:event_btnBackActionPerformed
+        String name = txtName.getText();
+        String content = txtContent.getText();
+
+        if (name.equals("")) {
+            JOptionPane.showMessageDialog(this, "Chưa nhập tên người phản ánh");
+        } else if (content.equals("")) {
+            JOptionPane.showMessageDialog(this, "Chưa nhập nội dung phản ánh");
+        } else {
+            String day = cbDay.getSelectedItem().toString();
+            String month = cbMonth.getSelectedItem().toString();
+            String year = cbYear.getSelectedItem().toString();
+
+            Date date = Date.valueOf(year + "-" + month + "-" + day);
+
+            String type = cbType.getSelectedItem().toString();
+            String state = cbState.getSelectedItem().toString();
+            PhanAnh pa = new PhanAnh(name, content, date, type, state);
+            ThemPAController.insert(pa);
+            JOptionPane.showMessageDialog(this, "Thêm thành công!");
+        }
+    }//GEN-LAST:event_btnCreateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

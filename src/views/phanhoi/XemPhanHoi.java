@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package views.phanhoi;
 
-import controllers.PhanHoiController;
+import controllers.phanhoi.PhanHoiController;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -131,7 +131,7 @@ public class XemPhanHoi extends javax.swing.JPanel {
         // TODO add your handling code here:
                     this.removeAll();
                     this.setLayout(new BorderLayout());
-                    this.add(new QLyPhanHoi(parentFrame));
+                    this.add(new PhanHoiPanel(parentFrame));
                     this.validate();
                     this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
