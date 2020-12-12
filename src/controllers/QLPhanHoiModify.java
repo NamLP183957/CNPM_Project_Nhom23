@@ -9,24 +9,39 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
+<<<<<<< HEAD
 import java.util.Vector;
 import models.QLPhanHoi;
+=======
+>>>>>>> parent of 8693ed2 (Edit PhanHoi)
 import service.MySQLConnection;
+//<<<<<<< HEAD
+//=======
+import models.QLPhanHoi;
+//>>>>>>> 0e55e1b2e4e76a5cb3dc9726421596c66e38a2ff
 /**
  *
  * @author Vostro 3580
  */
 public class QLPhanHoiModify {
-    public ResultSet Search(String data, String selected){
+    public ResultSet Search(String data, int id){
         Connection conn=null;
         Statement st=null;
         ResultSet rs=null;
         try{
-            conn=MySQLConnection.getMySQLConnection();
+            conn = MySQLConnection.getMySQLConnection();
             String sql=null;
             st=conn.createStatement();
             if(data.length()>0){
-                sql="select * from PHAN_ANH where NGUOI_PHAN_ANH like N'"+data+"%' and PHAN_LOAI=N'"+selected+"'"; 
+                if(id==1){
+                    sql="select * from PHAN_ANH where MA_PHAN_ANH like N'" + data+"%'";
+                }
+                if(id==2){
+                    sql="select * from PHAN_ANH where NGUOI_PHAN_ANH like N'" + data+"%'";
+                }
+                if(id==3){
+                    sql="select * from PHAN_ANH where NOI_DUNG like N'" + data+"%'";
+                }     
             }
             rs=st.executeQuery(sql);
         }catch(Exception ex){
@@ -41,7 +56,7 @@ public class QLPhanHoiModify {
         Statement st=null;
         ResultSet rs=null;
         try{
-            conn=MySQLConnection.getMySQLConnection();
+            conn = MySQLConnection.getMySQLConnection();
             String sql="select * from PhanHoi where MA_PHAN_HOI="+data;
             st=conn.createStatement();
             rs=st.executeQuery(sql);
@@ -57,7 +72,7 @@ public class QLPhanHoiModify {
         ResultSet rs=null;
         Statement st=null;
         try{
-            conn=MySQLConnection.getMySQLConnection();
+            conn = MySQLConnection.getMySQLConnection();
             String sql="select * from PhanHoi where MA_PHAN_HOI="+data;
             st=conn.createStatement();
             rs=st.executeQuery(sql);
@@ -73,7 +88,7 @@ public class QLPhanHoiModify {
         PreparedStatement ps=null;
         int ret=-1;
         try{
-        conn=MySQLConnection.getMySQLConnection();
+        conn = MySQLConnection.getMySQLConnection();
         String sql= "insert into PhanHoi values (?,?,?,?,?)";
         ps=conn.prepareStatement(sql);
         ps.setInt(1,ph.getMaPhanHoi());
@@ -106,7 +121,7 @@ public class QLPhanHoiModify {
         Statement st=null;
         ResultSet rs=null;
         try{
-            conn=MySQLConnection.getMySQLConnection();
+            conn = MySQLConnection.getMySQLConnection();
             st=conn.createStatement();
             String sql="select * from PHAN_ANH";
             rs=st.executeQuery(sql);
@@ -117,42 +132,4 @@ public class QLPhanHoiModify {
         }
     }
     
-    public Vector<String> comboxLinhVuc(){
-        Connection conn=null;
-        Statement st=null;
-        ResultSet rs=null;
-        Vector<String> data=null;
-        try{
-            conn=MySQLConnection.getMySQLConnection();
-            st=conn.createStatement();
-            String sql="select distinct PHAN_LOAI from PHAN_ANH ";
-            rs=st.executeQuery(sql);
-            data=new Vector<String>();
-            while(rs.next()){
-                data.add(rs.getString("PHAN_LOAI").toString());
-            }
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
-            return data;
-        }
-    }
-    
-    public int Edit(String dataND, int dataMaPH){
-        String sql="Update PhanHoi set NOI_DUNG=? where MA_PHAN_HOI=?";
-        Connection conn=null;
-        PreparedStatement st=null;
-        int ret=-1;
-        try{
-            conn=MySQLConnection.getMySQLConnection();
-            st=conn.prepareStatement(sql);
-            st.setString(1, dataND);
-            st.setInt(2, dataMaPH);
-            ret=st.executeUpdate();
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
-            return ret;
-        }
-    }
 }
