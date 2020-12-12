@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/NetBeansProjects/QuanLyPA/src/service/MySQLConnection.java</file>
             <file>file:/D:/NetBeansProjects/QuanLyPA/src/views/MainFrame.java</file>
+=======
+            <file>file:/G:/hoc%20phan%2020201/cnpm/project%201/CNPM_Project_Nhom23/CNPM_Project_Nhom23/src/views/PhanAnhPanel.java</file>
+>>>>>>> 1989645f93cd8b8cd84b98e24fe0b417dcbb8c34
         </group>
     </open-files>
 </project-private>

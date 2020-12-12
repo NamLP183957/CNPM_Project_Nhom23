@@ -48,29 +48,37 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         btnXuatPH = new javax.swing.JButton();
         btnGhiNhan = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnSearch.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(102, 0, 102));
         btnSearch.setText("Search");
+        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
 
-        combox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        combox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         combox.setForeground(new java.awt.Color(153, 0, 153));
         combox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã phản ánh", "Người phản ánh", "Nội dung" }));
+        combox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         combox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboxActionPerformed(evt);
             }
         });
 
+        txtSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 102));
         jButton1.setText("Show");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -121,6 +129,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         btnXuatPH.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnXuatPH.setForeground(new java.awt.Color(102, 0, 102));
         btnXuatPH.setText("Xuất phản hồi");
+        btnXuatPH.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnXuatPH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXuatPHActionPerformed(evt);
@@ -130,6 +139,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         btnGhiNhan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnGhiNhan.setForeground(new java.awt.Color(102, 0, 102));
         btnGhiNhan.setText("Ghi nhận phản hồi");
+        btnGhiNhan.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGhiNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGhiNhanActionPerformed(evt);
@@ -224,13 +234,13 @@ public class QLyPhanHoi extends javax.swing.JPanel {
             int selected=tableSearch.getSelectedRow();
             if(selected==-1){
                 JOptionPane.showMessageDialog(this, "Chưa có hàng nào được chọn !");
-                return;
+                
             }else{
                 String data=tblModel.getValueAt(selected, 0).toString();
                 rs= new QLPhanHoiModify().XuatPH(data);
                 if(rs.isBeforeFirst()==false){
                     JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
-                    return;
+                    
                 }else{
                     String maPH=null, ngayPH=null, ngLQ=null, nd=null, cQ=null;
                     while(rs.next()){

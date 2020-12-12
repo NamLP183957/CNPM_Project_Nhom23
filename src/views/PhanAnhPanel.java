@@ -23,9 +23,8 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     JFrame parentFrame;
     private TimKiemController control=new TimKiemController();
-    private ArrayList<PhanAnh> listSearchDate=new ArrayList<>();
-    private ArrayList<PhanAnh> listSearchState=new ArrayList<>();
-    private ArrayList<PhanAnh> listSearchName=new ArrayList<>();
+    private ArrayList<PhanAnh> listSearch=new ArrayList<>();
+    
     DefaultTableModel model;
     
      public PhanAnhPanel(JFrame parentFrame) {
@@ -55,7 +54,9 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         thongTinPhanAnh = new javax.swing.JTable();
         btnDetailView = new javax.swing.JButton();
 
-        jComboBoxState.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jComboBoxState.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mới ghi nhận", "Đang giải quyết", "Đã giải quyết" }));
         jComboBoxState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,19 +64,21 @@ public class PhanAnhPanel extends javax.swing.JPanel {
             }
         });
 
+        jTextName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextName.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextNameKeyPressed(evt);
             }
         });
 
-        jComboBoxDay.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBoxDay.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBoxDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jComboBoxMonth.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBoxMonth.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBoxMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        jComboBoxYear.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jComboBoxYear.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBoxYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
         jComboBoxYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,29 +86,39 @@ public class PhanAnhPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("Tìm kiếm theo ngày");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jButtonChange.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonChange.setText("Sửa phản ánh");
+        jButtonChange.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonChange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonChangeActionPerformed(evt);
             }
         });
 
+        jButtonInsert.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonInsert.setText("Thêm phản ánh");
+        jButtonInsert.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInsertActionPerformed(evt);
             }
         });
 
+        jButtonDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonDelete.setText("Xóa phản ánh");
+        jButtonDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        thongTinPhanAnh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        thongTinPhanAnh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         thongTinPhanAnh.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -129,7 +142,9 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(thongTinPhanAnh);
 
+        btnDetailView.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDetailView.setText("Xem Chi Tiết");
+        btnDetailView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDetailView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDetailViewActionPerformed(evt);
@@ -144,51 +159,49 @@ public class PhanAnhPanel extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
+                        .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
                         .addComponent(jTextName, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addComponent(jComboBoxDay, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnDetailView, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(jComboBoxDay, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonInsert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDetailView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextName)
+                    .addComponent(jComboBoxState)
+                    .addComponent(jComboBoxDay)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxDay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(286, Short.MAX_VALUE))
+                        .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btnDetailView, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -208,8 +221,9 @@ public class PhanAnhPanel extends javax.swing.JPanel {
             listSearchDate.add(a);
             listSearchDate.add(b);
             */
-            if (state=="Tất cả") {listSearchState=control.getAllPhanAnh(); System.out.println(listSearchState.size());}
-            else {listSearchState=control.getPhanAnhByState(state);}
+            if (state=="Tất cả") {listSearch=control.getAllPhanAnh(); 
+            System.out.println(listSearch.size());}
+            else {listSearch=control.getPhanAnhByState(state);}
             model=(DefaultTableModel) thongTinPhanAnh.getModel();
             model.setRowCount(0);
             showResult();
@@ -219,8 +233,8 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String nameSearch=null;
         nameSearch=jTextName.getText();
-        listSearchName=null;
-        listSearchName =control.getPhanAnhByName(nameSearch);
+        listSearch=null;
+        listSearch =control.getPhanAnhByName(nameSearch);
 
         // System.out.println("length="+listSearchName.size());
         model=new DefaultTableModel();
@@ -239,18 +253,52 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         int year1=Integer.parseInt(year);
         int month1=Integer.parseInt(month);
         switch(month1){
-               case 4: if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 4 chỉ có 30 ngày");test=false;break;}
-               case 6: if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 6 chỉ có 30 ngày");test=false;break;};
-               case 9:  if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 9 chỉ có 30 ngày");test=false;break;};
-               case 11: if (day1==31)  {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 11 chỉ có 30 ngày");test=false;break;};
-               case 2: {if(!checkYear(year1) &&(day1>=29)){JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm không nhuận chỉ có 28 ngày");test=false;break;}
-                        if (checkYear(year1) &&(day1>=30)){JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm  nhuận chỉ có 29 ngày");test=false;break;}
+               case 4: 
+                   if (day1==31) 
+                   {
+                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 4 chỉ có 30 ngày");
+                       test=false;
+                       break;
+                   }
+               case 6:
+                   if (day1==31)
+                   {
+                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 6 chỉ có 30 ngày");
+                       test=false;
+                       break;
+                   };
+               case 9: 
+                   if (day1==31) 
+                   {JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 9 chỉ có 30 ngày");
+                   test=false;
+                   break;
+                   };
+               case 11:
+                   if (day1==31)
+                   {
+                       JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 11 chỉ có 30 ngày");
+                       test=false;
+                       break;
+                   };
+               case 2:
+                    {if(!checkYear(year1) &&(day1>=29))
+                    {
+                        JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm không nhuận chỉ có 28 ngày");
+                        test=false;
+                        break;
+                    }
+                    if (checkYear(year1) &&(day1>=30))
+                    {
+                        JOptionPane.showMessageDialog(thongTinPhanAnh, "Tháng 2 năm  nhuận chỉ có 29 ngày");
+                        test=false;
+                        break;
+                    }
                };
         }
           if (test){
             Date date=Date.valueOf(year+"-"+month+"-"+day);
             //System.out.println(date);
-            listSearchDate=control.getPhanAnhByDate(date);
+            listSearch=control.getPhanAnhByDate(date);
             model=(DefaultTableModel) thongTinPhanAnh.getModel();
             model=(DefaultTableModel) thongTinPhanAnh.getModel();
             model.setRowCount(0);
@@ -277,7 +325,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         
         int selectedIndex = thongTinPhanAnh.getSelectedRow();
         if (selectedIndex >= 0) {
-            PhanAnh phanAnh = listSearchName.get(selectedIndex);
+            PhanAnh phanAnh = listSearch.get(selectedIndex);
             XemPAPanel xemPAPanel = new XemPAPanel(this.parentFrame);
             XemPAController xemPAController = new XemPAController(phanAnh, xemPAPanel);
             
@@ -291,12 +339,25 @@ public class PhanAnhPanel extends javax.swing.JPanel {
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
         // TODO add your handling code here:
+        int rowselected = thongTinPhanAnh.getSelectedRow();
+        if(rowselected==-1){
+            JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để thay đổi");
+            return;
+        }
+        PhanAnh pa = listSearch.get(rowselected);
+        System.out.print(pa.getId());
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        this.add(new SuaPAPanel(parentFrame,pa));
+        this.validate();
+        this.repaint();
     }//GEN-LAST:event_jButtonChangeActionPerformed
     
     public void showResultByDate(){
-        if(listSearchDate.isEmpty())  JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
-        for (int i = 0; i < listSearchDate.size(); i++) {
-            model.addRow(new Object[]{listSearchDate.get(i).getId(),listSearchDate.get(i).getName(),listSearchDate.get(i).getContent(),listSearchDate.get(i).getDate(),listSearchDate.get(i).getType(),listSearchDate.get(i).getState()});   
+        if(listSearch.isEmpty())
+            JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
+        for (int i = 0; i < listSearch.size(); i++) {
+            model.addRow(new Object[]{listSearch.get(i).getId(),listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
         }
     }
     
@@ -308,17 +369,18 @@ public class PhanAnhPanel extends javax.swing.JPanel {
     
     public void showResultByName(){
         
-        for (int i = 0; i < listSearchName.size(); i++) {
+        for (int i = 0; i < listSearch.size(); i++) {
            
-            model.addRow(new Object[]{listSearchName.get(i).getId(),listSearchName.get(i).getName(),listSearchName.get(i).getContent(),listSearchName.get(i).getDate(),listSearchName.get(i).getType(),listSearchName.get(i).getState()});   
+            model.addRow(new Object[]{listSearch.get(i).getId(),listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
         }
        
     }
     public void showResult(){
-            if(listSearchState.isEmpty())  JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
+            if(listSearch.isEmpty()) 
+                JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
             //System.out.println(listSearchState.size());
-            for (int i = 0; i < listSearchState.size(); i++) {
-                model.addRow(new Object[]{listSearchState.get(i).getId(),listSearchState.get(i).getName(),listSearchState.get(i).getContent(),listSearchState.get(i).getDate(),listSearchState.get(i).getType(),listSearchState.get(i).getState()});   
+            for (int i = 0; i < listSearch.size(); i++) {
+                model.addRow(new Object[]{listSearch.get(i).getId(),listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
             }
     }
 
