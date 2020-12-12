@@ -5,6 +5,7 @@
  */
 package views;
 
+import controllers.SuaPAController;
 import controllers.TimKiemController;
 import controllers.XemPAController;
 import java.awt.BorderLayout;
@@ -116,6 +117,11 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         jButtonDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonDelete.setText("Xóa phản ánh");
         jButtonDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
 
         thongTinPhanAnh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         thongTinPhanAnh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -352,6 +358,19 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         this.validate();
         this.repaint();
     }//GEN-LAST:event_jButtonChangeActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        // TODO add your handling code here:
+        int rowselected = thongTinPhanAnh.getSelectedRow();
+        if(rowselected==-1){
+            JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để xoá");
+            return;
+        }
+        SuaPAController.deletePhanAnh(listSearch.get(rowselected).getId());
+        thongTinPhanAnh.remove(rowselected);
+        listSearch.remove(rowselected);
+        JOptionPane.showMessageDialog(this, "đã xóa phản ánh thành công");
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
     
     public void showResultByDate(){
         if(listSearch.isEmpty())
