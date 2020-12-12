@@ -193,7 +193,7 @@
               <Color blue="99" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new DefaultComboBoxModel(new QLPhanHoiModify().comboxLinhVuc())" type="code"/>
+              <Connection code="new DefaultComboBoxModel(new controllers.PhanHoiController().comboxLinhVuc())" type="code"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">

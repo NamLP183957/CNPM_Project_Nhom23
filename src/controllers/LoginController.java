@@ -19,7 +19,7 @@ import service.MySQLConnection;
  *
  * @author acer
  */
-public class loginController {
+public class LoginController {
        
         //tìm kiếm phản ánh theo ngày
         public static ArrayList<Account> getAccount() {
@@ -57,7 +57,7 @@ public class loginController {
             return false;
         }
         
-    public loginController() {
+    public LoginController() {
         
     }
 }

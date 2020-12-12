@@ -5,8 +5,9 @@
  */
 package views;
 
-import controllers.QLPhanHoiModify;
+import controllers.PhanHoiController;
 import java.awt.BorderLayout;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,12 +15,15 @@ import javax.swing.JOptionPane;
  * @author Vostro 3580
  */
 public class XemPhanHoi extends javax.swing.JPanel {
+    
+    JFrame parentFrame;
     private String nd;
     private int MaPH;
     /**
      * Creates new form XemPhanHoi
      */
-    public XemPhanHoi(String nd, int MaPH) {
+    public XemPhanHoi(JFrame parentFrame, String nd, int MaPH) {
+        this.parentFrame = parentFrame;
         this.nd=nd;
         this.MaPH=MaPH;
         initComponents();
@@ -127,7 +131,7 @@ public class XemPhanHoi extends javax.swing.JPanel {
         // TODO add your handling code here:
                     this.removeAll();
                     this.setLayout(new BorderLayout());
-                    this.add(new QLyPhanHoi());
+                    this.add(new QLyPhanHoi(parentFrame));
                     this.validate();
                     this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -138,7 +142,7 @@ public class XemPhanHoi extends javax.swing.JPanel {
         if(ret!=JOptionPane.YES_OPTION){
             return;
         }
-        new QLPhanHoiModify().Edit(txtAreaND.getText(), MaPH);
+        new PhanHoiController().Edit(txtAreaND.getText(), MaPH);
         if(ret!=-1){
             JOptionPane.showMessageDialog(this,"Bạn đã sửa phản hồi thành công !");
         }

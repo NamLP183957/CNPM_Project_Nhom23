@@ -5,8 +5,9 @@
  */
 package views;
 
-import controllers.QLPhanHoiModify;
+import controllers.PhanHoiController;
 import java.awt.BorderLayout;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.QLPhanHoi;
 
@@ -15,12 +16,15 @@ import models.QLPhanHoi;
  * @author Vostro 3580
  */
 public class ThemPhanHoiPanel extends javax.swing.JPanel {
+    
+    JFrame parentFrame;
 
     /**
      * Creates new form ThemPhanHoiPanel
      */
     private String pA;
-    public ThemPhanHoiPanel(String pA) {
+    public ThemPhanHoiPanel(JFrame parentFrame, String pA) {
+        this.parentFrame = parentFrame;
         this.pA=pA;
         initComponents();
         txtMaPH.setText(pA);
@@ -254,7 +258,7 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
                     this.removeAll();
                     this.setLayout(new BorderLayout());
-                    this.add(new QLyPhanHoi());
+                    this.add(new QLyPhanHoi(parentFrame));
                     this.validate();
                     this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -277,7 +281,7 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
                 if(ret!=JOptionPane.YES_OPTION){
                     return;
                 }
-                ret=QLPhanHoiModify.Add(ph);
+                ret=PhanHoiController.Add(ph);
                 if(ret!=-1){
                     JOptionPane.showMessageDialog(this, "Bạn đã thêm một phản hồi mới thành công !");
                     return;

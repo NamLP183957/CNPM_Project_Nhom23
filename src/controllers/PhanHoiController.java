@@ -10,14 +10,13 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.Vector;
-import service.SQLConnection;
 import models.QLPhanHoi;
 import service.MySQLConnection;
 /**
  *
  * @author Vostro 3580
  */
-public class QLPhanHoiModify {
+public class PhanHoiController {
     public ResultSet Search(String data, String selected){
         Connection conn=null;
         Statement st=null;

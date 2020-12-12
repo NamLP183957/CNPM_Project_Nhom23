@@ -5,7 +5,7 @@
  */
 package views;
 
-import controllers.PhanAnhModify;
+import controllers.PhanAnhController;
 import java.awt.BorderLayout;
 import java.sql.Date;
 import javax.swing.JFrame;
@@ -259,7 +259,7 @@ public class ThemPAPanel extends javax.swing.JPanel {
             String type = cbType.getSelectedItem().toString();
             String state = cbState.getSelectedItem().toString();
             PhanAnh pa = new PhanAnh(name, content, date, type, state);
-            PhanAnhModify.insert(pa);
+            PhanAnhController.insert(pa);
             JOptionPane.showMessageDialog(this, "Thêm thành công!");
         }
     }//GEN-LAST:event_btnCreateActionPerformed

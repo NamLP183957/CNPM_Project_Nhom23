@@ -5,7 +5,7 @@
  */
 package views;
 
-import controllers.loginController;
+import controllers.LoginController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import models.Account;
@@ -130,8 +130,8 @@ public class LoginFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        loginController lc=new loginController();
-        ArrayList<Account> list=loginController.getAccount();
+        LoginController lc=new LoginController();
+        ArrayList<Account> list=LoginController.getAccount();
         String userName1=userName.getText();
         String password1=String.valueOf(password.getPassword());
         System.out.println(password1);

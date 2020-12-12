@@ -5,8 +5,8 @@
  */
 package views;
 
-import controllers.PasswordModify;
-import controllers.loginController;
+import controllers.PasswordController;
+import controllers.LoginController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import models.Account;
@@ -133,9 +133,9 @@ public class ThayDoiPassword extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-        ArrayList<Account> list=loginController.getAccount();
+        ArrayList<Account> list=LoginController.getAccount();
         //System.out.println(list.get(1).getPassword());
-        loginController lc=new loginController();
+        LoginController lc=new LoginController();
         String userName1=jTextFieldUsername.getText();
         String password1=String.valueOf(jPasswordFieldPassword.getPassword());
         String newPassword1=String.valueOf(jPasswordFieldNewPassword.getPassword());
@@ -168,8 +168,8 @@ public class ThayDoiPassword extends javax.swing.JFrame {
                 if (newPassword1.equals(newPassword2))
                 {   
                     JOptionPane.showMessageDialog(this, "Thay đổi mật khẩu thành công.");
-                    int index=PasswordModify.getIdOfUserChange(userName1, password1, list);
-                    PasswordModify.changePassword(index, newPassword1);
+                    int index=PasswordController.getIdOfUserChange(userName1, password1, list);
+                    PasswordController.changePassword(index, newPassword1);
                     this.setVisible(false);
                     LoginFrame loginFrame = new LoginFrame();
                     loginFrame.setLocationRelativeTo(null);

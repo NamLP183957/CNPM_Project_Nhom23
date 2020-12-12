@@ -18,7 +18,7 @@ import service.MySQLConnection;
  *
  * @author ADMIN
  */
-public class PhanAnhModify {
+public class PhanAnhController {
     
     public static void insert(PhanAnh pa) {
         Connection conn = null;
@@ -39,13 +39,13 @@ public class PhanAnhModify {
             stmt.execute();
             
         } catch (SQLException ex) {
-            Logger.getLogger(controllers.PhanAnhModify.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controllers.PhanAnhController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (stmt != null) {
                 try {
                     stmt.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(controllers.PhanAnhModify.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(controllers.PhanAnhController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
@@ -53,7 +53,7 @@ public class PhanAnhModify {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(controllers.PhanAnhModify.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(controllers.PhanAnhController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

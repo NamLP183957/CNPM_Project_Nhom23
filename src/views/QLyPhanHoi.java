@@ -9,9 +9,10 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import controllers.QLPhanHoiModify;
+import controllers.PhanHoiController;
 import java.awt.BorderLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 
 
        
@@ -22,10 +23,12 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class QLyPhanHoi extends javax.swing.JPanel {
 
+    JFrame parentFrame;
     /**
      * Creates new form QLyPhanHoi
      */
-    public QLyPhanHoi() {
+    public QLyPhanHoi(JFrame parentFrame) {
+        this.parentFrame = parentFrame;
         initComponents();
     }
     /**
@@ -96,7 +99,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
 
         combox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         combox.setForeground(new java.awt.Color(153, 0, 153));
-        combox.setModel(new DefaultComboBoxModel(new QLPhanHoiModify().comboxLinhVuc()));
+        combox.setModel(new DefaultComboBoxModel(new PhanHoiController().comboxLinhVuc()));
         combox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         combox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +193,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
 
             }else{
                 String data=tblModel.getValueAt(selected, 0).toString();
-                rs= new QLPhanHoiModify().XuatPH(data);
+                rs= new PhanHoiController().XuatPH(data);
                 if(rs.isBeforeFirst()==false){
                     JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
 
@@ -206,7 +209,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
 
                     this.removeAll();
                     this.setLayout(new BorderLayout());
-                    this.add(new XemPhanHoi(nd, Integer.valueOf(maPH)));
+                    this.add(new XemPhanHoi(parentFrame, nd, Integer.valueOf(maPH)));
                     this.validate();
                     this.repaint();
                 }
@@ -225,14 +228,14 @@ public class QLyPhanHoi extends javax.swing.JPanel {
         }else{
             String maPA=tblModel.getValueAt(selected, 0).toString();
             try{
-                ResultSet rs=new QLPhanHoiModify().GhiNhanPhanHoi(maPA);
+                ResultSet rs=new PhanHoiController().GhiNhanPhanHoi(maPA);
                 if(rs.isBeforeFirst()){
                     JOptionPane.showMessageDialog(this, "Phản hồi này đã được ghi nhận, bấm xem phản hồi !");
                     return;
                 }else{
                     this.removeAll();
                     this.setLayout(new BorderLayout());
-                    this.add(new ThemPhanHoiPanel(maPA));
+                    this.add(new ThemPhanHoiPanel(parentFrame, maPA));
                     this.validate();
                     this.repaint();
                 }
@@ -251,7 +254,7 @@ public class QLyPhanHoi extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Bạn chưa chọn tìm kiếm theo tiêu chí !");
                 return;
             }
-            rs= new QLPhanHoiModify().Search(txtSearch.getText(), selected);
+            rs= new PhanHoiController().Search(txtSearch.getText(), selected);
             if(rs.isBeforeFirst()==false){
                 JOptionPane.showMessageDialog(this, "Không tìm thấy nội dung bạn cần tìm !");
                 return;

@@ -48,11 +48,7 @@ public class MainController {
                 view = new ThongKePanel(this.jfrMain);
                 break;
             case "PhanAnh":
-//<<<<<<< HEAD
-               // view = new  //PhanAnhPanel(this.jfrMain);       
-//=======
                 view = new PhanAnhPanel(this.jfrMain);               
-//>>>>>>> 0e55e1b2e4e76a5cb3dc9726421596c66e38a2ff
                 break;
             case "PhanHoi":
                 view = new  QLyPhanHoi(this.jfrMain);

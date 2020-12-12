@@ -18,8 +18,8 @@ import service.MySQLConnection;
  *
  * @author acer
  */
-public class PasswordModify {
-    ArrayList<Account> list=loginController.getAccount();
+public class PasswordController {
+    ArrayList<Account> list=LoginController.getAccount();
     public static int getIdOfUserChange(String username,String password,ArrayList<Account> list){ 
             for (int i = 0; i < list.size(); i++) {  
                // System.out.println(( list.get(i).getPassword().equals(password))); 
