@@ -28,7 +28,7 @@
                       <Component id="jComboBoxState" min="-2" pref="131" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="jTextName" min="-2" pref="296" max="-2" attributes="0"/>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                       <Component id="jComboBoxDay" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jComboBoxMonth" min="-2" pref="72" max="-2" attributes="0"/>
