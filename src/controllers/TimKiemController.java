@@ -14,32 +14,6 @@ import service.MySQLConnection;
  * @author acer
  */
 public class TimKiemController {
-        //tìm kiếm phản ánh theo ngày
-        public ArrayList<PhanAnh> getPhanAnhByDate(Date ngay) {
-            ArrayList<PhanAnh> list = new ArrayList<>();
-            Connection conn=MySQLConnection.getMySQLConnection();
-            String select = "select * from phan_anh where NGAY_PHAN_ANH='"+ngay+"'";
-            try (
-                PreparedStatement ps = conn.prepareStatement(select)) {
-
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    PhanAnh pa = new PhanAnh();                    
-                    pa.setId(rs.getInt("MA_PHAN_ANH"));
-                    pa.setName(rs.getString("NGUOI_PHAN_ANH"));
-                    pa.setContent(rs.getString("NOI_DUNG"));
-                    pa.setDate(rs.getDate("NGAY_PHAN_ANH"));
-                    pa.setType(rs.getString("PHAN_LOAI"));
-                    pa.setState(rs.getString("TRANG_THAI"));
-                    list.add(pa);
-                   //System.out.println(pa.getId()+pa.getName()+pa.getState());
-
-                }
-            } catch (Exception e) {
-            }
-            return list;
-        }  
-        
         public ArrayList<PhanAnh> getPhanAnhByState(String state) {
             ArrayList<PhanAnh> list = new ArrayList<>();
             Connection conn=MySQLConnection.getMySQLConnection();
