@@ -25,21 +25,6 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jComboBoxState" min="-2" pref="131" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="jTextName" min="-2" pref="296" max="-2" attributes="0"/>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
-                      <Component id="jComboBoxDay" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="jComboBoxMonth" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="jComboBoxYear" min="-2" pref="74" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-=======
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="jScrollPane1" min="-2" pref="875" max="-2" attributes="0"/>
@@ -58,7 +43,6 @@
                           <Component id="jTextName" max="32767" attributes="0"/>
                           <Component id="jLabel5" pref="348" max="32767" attributes="0"/>
                       </Group>
->>>>>>> c0918404004f17d8c08642a7c9b9155f52330d0c
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>

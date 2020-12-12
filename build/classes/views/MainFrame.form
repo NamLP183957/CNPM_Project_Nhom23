@@ -28,14 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
           <Component id="jpnMenu1" min="-2" max="-2" attributes="0"/>
-=======
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jpnMenu1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
-          </Group>
->>>>>>> parent of 8693ed2 (Edit PhanHoi)
       </Group>
     </DimensionLayout>
   </Layout>
@@ -221,21 +214,14 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jlbPhanAnh">
                       <Properties>
-<<<<<<< HEAD
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="jlbPhanAnh.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/phan_anh.png&quot;)));">
-=======
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="jlbPhanAnh.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/PhanAnh.png&quot;)));">
->>>>>>> parent of 8693ed2 (Edit PhanHoi)
                           <Font name="Arial" size="24" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Ph&#x1ea3;n &#xe1;nh"/>
                       </Properties>
-<<<<<<< HEAD
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MainFrame_jlbPhanAnh"/>
                       </AuxValues>
-=======
->>>>>>> parent of 8693ed2 (Edit PhanHoi)
                     </Component>
                   </SubComponents>
                 </Container>
@@ -270,11 +256,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jlbThongKe">
                       <Properties>
-<<<<<<< HEAD
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="jlbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/thong_ke.png&quot;)));">
-=======
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="jlbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/ThongKe.png&quot;)));">
->>>>>>> parent of 8693ed2 (Edit PhanHoi)
                           <Font name="Arial" size="24" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng k&#xea;"/>
@@ -313,11 +295,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jlbPhanHoi">
                       <Properties>
-<<<<<<< HEAD
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="jlbPhanHoi.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/phan_hoi.png&quot;)));">
-=======
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="jlbPhanHoi.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/PhanHoi.png&quot;)));">
->>>>>>> parent of 8693ed2 (Edit PhanHoi)
                           <Font name="Arial" size="24" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Ph&#x1ea3;n h&#x1ed3;i"/>
