@@ -64,7 +64,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         });
 
         jComboBoxState.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Môi trường", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Tôn giáo tín ngưỡng", "Thi đua khen thưởng", "Văn hóa lễ hội", "Kinh doanh", "Thi hành pháp luật", "Lĩnh vực khác" }));
+        jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Môi trường", "Chờ tiếp nhận", "Đang giải quyết", "Đã giải quyết", "Từ chối tiếp nhận", "Bị trả lại", "Chờ bổ sung" }));
         jComboBoxState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxStateActionPerformed(evt);
@@ -145,7 +145,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         jLabel3.setText("Trạng thái");
 
         jComboBoxLinhVuc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBoxLinhVuc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Chờ tiếp nhận", "Đang giải quyết", "Đã giải quyết", "Từ chối tiếp nhận", "Bị trả lại", "Chờ bổ sung" }));
+        jComboBoxLinhVuc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Tôn giáo tín ngưỡng", "Thi đua khen thưởng", "Văn hóa lễ hội", "Kinh doanh", "Thi hành pháp luật", "Lĩnh vực khác" }));
         jComboBoxLinhVuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxLinhVucActionPerformed(evt);

@@ -96,18 +96,15 @@
           <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="11">
+          <StringArray count="8">
             <StringItem index="0" value="T&#x1ea5;t c&#x1ea3;"/>
             <StringItem index="1" value="M&#xf4;i tr&#x1b0;&#x1edd;ng"/>
-            <StringItem index="2" value="An to&#xe0;n th&#x1ef1;c ph&#x1ea9;m"/>
-            <StringItem index="3" value="Th&#x1ee7; t&#x1ee5;c h&#xe0;nh ch&#xed;nh"/>
-            <StringItem index="4" value="An ninh tr&#x1ead;t t&#x1ef1;"/>
-            <StringItem index="5" value="T&#xf4;n gi&#xe1;o t&#xed;n ng&#x1b0;&#x1ee1;ng"/>
-            <StringItem index="6" value="Thi &#x111;ua khen th&#x1b0;&#x1edf;ng"/>
-            <StringItem index="7" value="V&#x103;n h&#xf3;a l&#x1ec5; h&#x1ed9;i"/>
-            <StringItem index="8" value="Kinh doanh"/>
-            <StringItem index="9" value="Thi h&#xe0;nh ph&#xe1;p lu&#x1ead;t"/>
-            <StringItem index="10" value="L&#x129;nh v&#x1ef1;c kh&#xe1;c"/>
+            <StringItem index="2" value="Ch&#x1edd; ti&#x1ebf;p nh&#x1ead;n"/>
+            <StringItem index="3" value="&#x110;ang gi&#x1ea3;i quy&#x1ebf;t"/>
+            <StringItem index="4" value="&#x110;&#xe3; gi&#x1ea3;i quy&#x1ebf;t"/>
+            <StringItem index="5" value="T&#x1eeb; ch&#x1ed1;i ti&#x1ebf;p nh&#x1ead;n"/>
+            <StringItem index="6" value="B&#x1ecb; tr&#x1ea3; l&#x1ea1;i"/>
+            <StringItem index="7" value="Ch&#x1edd; b&#x1ed5; sung"/>
           </StringArray>
         </Property>
       </Properties>
@@ -277,14 +274,17 @@
           <Font name="Tahoma" size="18" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="7">
+          <StringArray count="10">
             <StringItem index="0" value="T&#x1ea5;t c&#x1ea3;"/>
-            <StringItem index="1" value="Ch&#x1edd; ti&#x1ebf;p nh&#x1ead;n"/>
-            <StringItem index="2" value="&#x110;ang gi&#x1ea3;i quy&#x1ebf;t"/>
-            <StringItem index="3" value="&#x110;&#xe3; gi&#x1ea3;i quy&#x1ebf;t"/>
-            <StringItem index="4" value="T&#x1eeb; ch&#x1ed1;i ti&#x1ebf;p nh&#x1ead;n"/>
-            <StringItem index="5" value="B&#x1ecb; tr&#x1ea3; l&#x1ea1;i"/>
-            <StringItem index="6" value="Ch&#x1edd; b&#x1ed5; sung"/>
+            <StringItem index="1" value="An to&#xe0;n th&#x1ef1;c ph&#x1ea9;m"/>
+            <StringItem index="2" value="Th&#x1ee7; t&#x1ee5;c h&#xe0;nh ch&#xed;nh"/>
+            <StringItem index="3" value="An ninh tr&#x1ead;t t&#x1ef1;"/>
+            <StringItem index="4" value="T&#xf4;n gi&#xe1;o t&#xed;n ng&#x1b0;&#x1ee1;ng"/>
+            <StringItem index="5" value="Thi &#x111;ua khen th&#x1b0;&#x1edf;ng"/>
+            <StringItem index="6" value="V&#x103;n h&#xf3;a l&#x1ec5; h&#x1ed9;i"/>
+            <StringItem index="7" value="Kinh doanh"/>
+            <StringItem index="8" value="Thi h&#xe0;nh ph&#xe1;p lu&#x1ead;t"/>
+            <StringItem index="9" value="L&#x129;nh v&#x1ef1;c kh&#xe1;c"/>
           </StringArray>
         </Property>
       </Properties>
