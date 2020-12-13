@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/views/ThemPAPanel.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/controllers/phanhoi/PhanHoiController.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/service/MySQLConnection.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/views/phanhoi/PhanHoiPanel.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/views/MainFrame.java</file>
         </group>
     </open-files>
 </project-private>

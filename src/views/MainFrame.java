@@ -118,7 +118,7 @@ public class MainFrame extends javax.swing.JFrame {
         jpnPhanAnh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jlbPhanAnh.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jlbPhanAnh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/PhanAnh.png")));
+        jlbPhanAnh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/phan_anh.png")));
         jlbPhanAnh.setText("Phản ánh");
 
         javax.swing.GroupLayout jpnPhanAnhLayout = new javax.swing.GroupLayout(jpnPhanAnh);
@@ -139,7 +139,7 @@ public class MainFrame extends javax.swing.JFrame {
         jpnThongKe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jlbThongKe.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jlbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/ThongKe.png")));
+        jlbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/thong_ke.png")));
         jlbThongKe.setText("Thống kê");
 
         javax.swing.GroupLayout jpnThongKeLayout = new javax.swing.GroupLayout(jpnThongKe);
@@ -160,7 +160,7 @@ public class MainFrame extends javax.swing.JFrame {
         jpnPhanHoi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jlbPhanHoi.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jlbPhanHoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/PhanHoi.png")));
+        jlbPhanHoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/phan_hoi.png")));
         jlbPhanHoi.setText("Phản hồi");
 
         javax.swing.GroupLayout jpnPhanHoiLayout = new javax.swing.GroupLayout(jpnPhanHoi);
@@ -238,9 +238,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jpnMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+            .addComponent(jpnMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
