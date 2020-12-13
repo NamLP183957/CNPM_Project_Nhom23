@@ -5,32 +5,39 @@
  */
 package views.phanhoi;
 
-import java.sql.ResultSet;
-import java.util.Vector;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import views.phananh.*;
+import controllers.TimKiemController;
+import controllers.phananh.SuaPAController;
+import controllers.phananh.XemPAController;
 import controllers.phanhoi.PhanHoiController;
 import java.awt.BorderLayout;
-import javax.swing.DefaultComboBoxModel;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JFrame;
-
-
-       
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import models.PhanAnh;
+import models.QLPhanHoi;
 
 /**
  *
- * @author Vostro 3580
+ * @author acer
  */
 public class PhanHoiPanel extends javax.swing.JPanel {
 
     JFrame parentFrame;
-    /**
-     * Creates new form QLyPhanHoi
-     */
-    public PhanHoiPanel(JFrame parentFrame) {
+    private TimKiemController control = new TimKiemController();
+    private ArrayList<PhanAnh> listSearch = new ArrayList<>();
+    
+    DefaultTableModel model;
+    
+     public PhanHoiPanel(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,195 +47,199 @@ public class PhanHoiPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        jComboBoxState = new javax.swing.JComboBox<>();
+        jTextName = new javax.swing.JTextField();
+        jButtonInsert = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableSearch = new javax.swing.JTable();
-        btnXuatPH = new javax.swing.JButton();
-        btnGhiNhan = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        combox = new javax.swing.JComboBox<>();
-        txtSearch = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        thongTinPhanHoi = new javax.swing.JTable();
+        btnDetail = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBoxLinhVuc = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
-        tableSearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tableSearch.setModel(new javax.swing.table.DefaultTableModel(
+        jComboBoxState.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jComboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Môi trường", "Chờ tiếp nhận", "Đang giải quyết", "Đã giải quyết", "Từ chối tiếp nhận", "Bị trả lại", "Chờ bổ sung" }));
+        jComboBoxState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxStateActionPerformed(evt);
+            }
+        });
+
+        jTextName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTextName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextNameKeyPressed(evt);
+            }
+        });
+
+        jButtonInsert.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonInsert.setText("Thêm phản hồi");
+        jButtonInsert.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInsertActionPerformed(evt);
+            }
+        });
+
+        thongTinPhanHoi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        thongTinPhanHoi.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        thongTinPhanHoi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Mã phản ánh", "Người phản ánh", "Nội dung", "Ngày phản ánh", "Phân loại", "Trạng thái"
+                "Người phản ánh", "Nội dung", "Ngày", "Phân loại", "Trạng thái"
             }
-        ));
-        jScrollPane1.setViewportView(tableSearch);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
 
-        btnXuatPH.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnXuatPH.setForeground(new java.awt.Color(102, 0, 102));
-        btnXuatPH.setText("Xem phản hồi");
-        btnXuatPH.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXuatPH.addActionListener(new java.awt.event.ActionListener() {
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        thongTinPhanHoi.setRowHeight(28);
+        thongTinPhanHoi.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                thongTinPhanHoiComponentHidden(evt);
+            }
+        });
+        jScrollPane1.setViewportView(thongTinPhanHoi);
+
+        btnDetail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDetail.setText("Xem Chi Tiết");
+        btnDetail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXuatPHActionPerformed(evt);
+                btnDetailActionPerformed(evt);
             }
         });
 
-        btnGhiNhan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnGhiNhan.setForeground(new java.awt.Color(102, 0, 102));
-        btnGhiNhan.setText("Thêm phản hồi");
-        btnGhiNhan.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnGhiNhan.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Trạng thái");
+
+        jComboBoxLinhVuc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBoxLinhVuc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "An toàn thực phẩm", "Thủ tục hành chính", "An ninh trật tự", "Tôn giáo tín ngưỡng", "Thi đua khen thưởng", "Văn hóa lễ hội", "Kinh doanh", "Thi hành pháp luật", "Lĩnh vực khác" }));
+        jComboBoxLinhVuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGhiNhanActionPerformed(evt);
+                jComboBoxLinhVucActionPerformed(evt);
             }
         });
 
-        btnSearch.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnSearch.setForeground(new java.awt.Color(102, 0, 102));
-        btnSearch.setText("Tìm kiếm");
-        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Lĩnh vực");
 
-        combox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        combox.setForeground(new java.awt.Color(153, 0, 153));
-        combox.setModel(new DefaultComboBoxModel(new controllers.phanhoi.PhanHoiController().comboxLinhVuc()));
-        combox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        combox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboxActionPerformed(evt);
-            }
-        });
-
-        txtSearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Chọn lĩnh vực");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Người phản ánh");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(combox, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel2)
-                        .addGap(69, 69, 69)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnXuatPH, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGhiNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(combox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnXuatPH, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnGhiNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("Người phản ánh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBoxLinhVuc, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextName)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextName, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxLinhVuc, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnXuatPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatPHActionPerformed
+    private void jComboBoxStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxStateActionPerformed
         // TODO add your handling code here:
+        String state = jComboBoxState.getSelectedItem().toString();
+        String linhVuc = jComboBoxLinhVuc.getSelectedItem().toString();
+        String name = jTextName.getText();
+        if (state == "Tất cả") state = "";
+        if (linhVuc == "Tất cả") linhVuc = "";
+        listSearch = null;
+        listSearch = control.getPhanAnhByAll(state, linhVuc, name);
+        model = new DefaultTableModel();
+        model = (DefaultTableModel) thongTinPhanHoi.getModel();
+        model.setRowCount(0);
+        showResult();
+    }//GEN-LAST:event_jComboBoxStateActionPerformed
 
-        ResultSet rs=null;
-        try{
-            int selected=tableSearch.getSelectedRow();
-            if(selected==-1){
-                JOptionPane.showMessageDialog(this, "Chưa có hàng nào được chọn !");
-
-            }else{
-                String data=tblModel.getValueAt(selected, 0).toString();
-                rs= new PhanHoiController().XuatPH(data);
-                if(rs.isBeforeFirst()==false){
-                    JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
-
-                }else{
-                    String maPH=null, ngayPH=null, ngLQ=null, nd=null, cQ=null;
-                    while(rs.next()){
-                        maPH=String.valueOf(rs.getInt("MA_PHAN_HOI"));
-                        ngayPH=String.valueOf(rs.getDate("NGAY_PHAN_HOI"));
-                        ngLQ=String.valueOf(rs.getString("NGUOI_LIEN_QUAN"));
-                        nd=String.valueOf(rs.getString("NOI_DUNG"));
-                        cQ=String.valueOf(rs.getString("CO_QUAN"));
-                    }
-
-                    this.removeAll();
-                    this.setLayout(new BorderLayout());
-                    this.add(new XemPhanHoi(parentFrame, nd, Integer.valueOf(maPH)));
-                    this.validate();
-                    this.repaint();
-                }
-            }
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-    }//GEN-LAST:event_btnXuatPHActionPerformed
-
-    private void btnGhiNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGhiNhanActionPerformed
+    private void jTextNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextNameKeyPressed
         // TODO add your handling code here:
-        int selected= tableSearch.getSelectedRow();
+        String state = jComboBoxState.getSelectedItem().toString();
+        String linhVuc = jComboBoxLinhVuc.getSelectedItem().toString();
+        String name = jTextName.getText();
+        if (state == "Tất cả") state = "";
+        if (linhVuc == "Tất cả") linhVuc = "";
+        listSearch = null;
+        listSearch = control.getPhanAnhByAll(state, linhVuc,name);
+        model = new DefaultTableModel();
+        model = (DefaultTableModel) thongTinPhanHoi.getModel();
+        model.setRowCount(0);
+        showResult();
+    }//GEN-LAST:event_jTextNameKeyPressed
+
+    private void thongTinPhanHoiComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_thongTinPhanHoiComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_thongTinPhanHoiComponentHidden
+
+    private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertActionPerformed
+         int selected= thongTinPhanHoi.getSelectedRow();
         if(selected==-1){
             JOptionPane.showMessageDialog(this, "Không có hàng nào được chọn !");
             return;
         }else{
-            String maPA=tblModel.getValueAt(selected, 0).toString();
+            String maPA=model.getValueAt(selected, 0).toString();
             try{
-                ResultSet rs=new PhanHoiController().GhiNhanPhanHoi(maPA);
+                ResultSet rs=new PhanHoiController().ghiNhanPhanHoi(maPA);
                 if(rs.isBeforeFirst()){
                     JOptionPane.showMessageDialog(this, "Phản hồi này đã được ghi nhận, bấm xem phản hồi !");
                     return;
@@ -243,58 +254,108 @@ public class PhanHoiPanel extends javax.swing.JPanel {
                 ex.printStackTrace();
             }
         }
+    }//GEN-LAST:event_jButtonInsertActionPerformed
 
-    }//GEN-LAST:event_btnGhiNhanActionPerformed
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
-        ResultSet rs=null;
+    private void btnDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailActionPerformed
+         ResultSet rs=null;
+        QLPhanHoi pH=new QLPhanHoi();
         try{
-            if(selected==null){
-                JOptionPane.showMessageDialog(this, "Bạn chưa chọn tìm kiếm theo tiêu chí !");
-                return;
+            int selected=thongTinPhanHoi.getSelectedRow();
+            if(selected==-1){
+                JOptionPane.showMessageDialog(this, "Chưa có hàng nào được chọn !");
+
+            }else{
+                String data=model.getValueAt(selected, 0).toString();
+                rs= new PhanHoiController().xuatPH(data);
+                if(rs.isBeforeFirst()==false){
+                    JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
+
+                }else{
+                   
+                    while(rs.next()){
+                        pH.setMaPhanHoi(rs.getInt("MA_PHAN_HOI"));
+                        pH.setNgayPhanHoi(String.valueOf(rs.getDate("NGAY_PHAN_HOI")));
+                        pH.setNguoiLienQuan(String.valueOf(rs.getString("NGUOI_LIEN_QUAN")));
+                        pH.setNoiDung(String.valueOf(rs.getString("NOI_DUNG")));
+                        pH.setCoQuan(String.valueOf(rs.getString("CO_QUAN")));
+                    }
+
+                    this.removeAll();
+                    this.setLayout(new BorderLayout());
+                    this.add(new XemPhanHoi(parentFrame, pH));
+                    this.validate();
+                    this.repaint();
+                }
             }
-            rs= new PhanHoiController().Search(txtSearch.getText(), selected);
-            if(rs.isBeforeFirst()==false){
-                JOptionPane.showMessageDialog(this, "Không tìm thấy nội dung bạn cần tìm !");
-                return;
-            }
-            Vector data=null;
-            tblModel.setRowCount(0);
-            while(rs.next()){
-                data=new Vector();
-                data.add(rs.getInt("MA_PHAN_ANH"));
-                data.add(rs.getString("NGUOI_PHAN_ANH"));
-                data.add(rs.getString("NOI_DUNG"));
-                data.add(rs.getDate("NGAY_PHAN_ANH"));
-                data.add(rs.getString("PHAN_LOAI"));
-                data.add(rs.getString("TRANG_THAI"));
-                tblModel.addRow(data);
-            }
-            tableSearch.setModel(tblModel);
         }catch(Exception ex){
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_btnSearchActionPerformed
-    private String selected=null;
-    private void comboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxActionPerformed
-        // TODO add your handling code here:
-        selected= combox.getSelectedItem().toString();
-    }//GEN-LAST:event_comboxActionPerformed
+    }//GEN-LAST:event_btnDetailActionPerformed
 
-    private String header[]={"Mã phản ánh", "Người phản ánh", "Nội dung", "Ngày phản ánh", "Phân loại", "Trạng thái"};
-    private DefaultTableModel tblModel=new DefaultTableModel(header,0);
+    private void jComboBoxLinhVucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLinhVucActionPerformed
+        String state = jComboBoxState.getSelectedItem().toString();
+        String linhVuc = jComboBoxLinhVuc.getSelectedItem().toString();
+        String name = jTextName.getText();
+        if (state == "Tất cả") state = "";
+        if (linhVuc == "Tất cả") linhVuc = "";
+        listSearch = null;
+        listSearch = control.getPhanAnhByAll(state, linhVuc, name);
+        model = new DefaultTableModel();
+        model = (DefaultTableModel) thongTinPhanHoi.getModel();
+        model.setRowCount(0);
+        showResult();
+                  
+    }//GEN-LAST:event_jComboBoxLinhVucActionPerformed
 
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        
+    }//GEN-LAST:event_formComponentHidden
+    
+    public void showResultByDate(){
+        if(listSearch.isEmpty())
+            JOptionPane.showMessageDialog(thongTinPhanHoi, "Không tồn tại dữ liệu cần tìm");
+        for (int i = 0; i < listSearch.size(); i++) {
+            model.addRow(new Object[]{listSearch.get(i).getId(),listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
+        }
+    }
+    
+    static boolean checkYear(int year) 
+    { 
+        return (((year % 4 == 0) && (year % 100 != 0)) || 
+            (year % 400 == 0)); 
+    } 
+    
+    public void showResultByName(){
+        
+        for (int i = 0; i < listSearch.size(); i++) {
+           
+            model.addRow(new Object[]{listSearch.get(i).getName(),listSearch.get(i).getContent(),listSearch.get(i).getDate(),listSearch.get(i).getType(),listSearch.get(i).getState()});   
+        }
+       
+    }
+    public void showResult(){
+//            if(listSearch.isEmpty()) 
+//                JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
+            for (int i = 0; i < listSearch.size(); i++) {
+                model.addRow(new Object[]{listSearch.get(i).getName(),
+                                            listSearch.get(i).getContent(),
+                                            listSearch.get(i).getDate(),
+                                            listSearch.get(i).getType(),
+                                            listSearch.get(i).getState()});   
+            }
+    }
+
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGhiNhan;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnXuatPH;
-    private javax.swing.JComboBox<String> combox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton btnDetail;
+    private javax.swing.JButton jButtonInsert;
+    private javax.swing.JComboBox<String> jComboBoxLinhVuc;
+    private javax.swing.JComboBox<String> jComboBoxState;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableSearch;
-    private javax.swing.JTextField txtSearch;
+    private javax.swing.JTextField jTextName;
+    private javax.swing.JTable thongTinPhanHoi;
     // End of variables declaration//GEN-END:variables
 }
