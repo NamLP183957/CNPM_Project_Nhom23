@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JLabel;
-import services.MySQLConnection;
+import service.MySQLConnection;
 
 /**
  *

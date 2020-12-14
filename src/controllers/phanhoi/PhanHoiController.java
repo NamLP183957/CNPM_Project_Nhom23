@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.PhanHoi;
-import services.MySQLConnection;
+import service.MySQLConnection;
 /**
  *
  * @author Le Minh Nghia

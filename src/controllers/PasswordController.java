@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ArrayList;
 import models.Account;
-import services.MySQLConnection;
+import service.MySQLConnection;
 
 /**
  *

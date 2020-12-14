@@ -8,7 +8,7 @@ package controllers;
 import java.util.ArrayList;
 import models.PhanAnh;
 import java.sql.*;
-import services.MySQLConnection;
+import service.MySQLConnection;
 /**
  *
  * @author Tran Van Tuyen
