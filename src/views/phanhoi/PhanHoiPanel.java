@@ -118,7 +118,7 @@ public class PhanHoiPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(thongTinPhanHoi);
 
         btnDetail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnDetail.setText("Xem Chi Tiết");
+        btnDetail.setText("Xem chi tiết");
         btnDetail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,15 +155,11 @@ public class PhanHoiPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxState, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBoxLinhVuc, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxLinhVuc, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextName)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))))
@@ -253,6 +249,7 @@ public class PhanHoiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonInsertActionPerformed
 
     private void btnDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailActionPerformed
+<<<<<<< HEAD
         
         int selected = thongTinPhanHoi.getSelectedRow();
         if (selected == -1) {
@@ -270,6 +267,37 @@ public class PhanHoiPanel extends javax.swing.JPanel {
                 this.add(controller.getPanel());
                 this.validate();
                 this.repaint();
+=======
+         ResultSet rs=null;
+        QLPhanHoi pH=new QLPhanHoi();
+        try{
+            int selected=thongTinPhanHoi.getSelectedRow();
+            if(selected==-1){
+                JOptionPane.showMessageDialog(this, "Chưa có hàng nào được chọn !");
+
+            }else{
+                String data=model.getValueAt(selected, 0).toString();
+                rs= new PhanHoiController().xuatPH(data);
+                if(rs.isBeforeFirst()==false){
+                    JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
+
+                }else{
+                   
+                    while(rs.next()){
+                        pH.setMaPhanHoi(rs.getInt("MA_PHAN_HOI"));
+                        pH.setNgayPhanHoi(String.valueOf(rs.getDate("NGAY_PHAN_HOI")));
+                        pH.setNguoiLienQuan(String.valueOf(rs.getString("NGUOI_LIEN_QUAN")));
+                        pH.setNoiDung(String.valueOf(rs.getString("NOI_DUNG")));
+                        pH.setCoQuan(String.valueOf(rs.getString("CO_QUAN")));
+                    }
+
+                    this.removeAll();
+                    this.setLayout(new BorderLayout());
+                    this.add(new XemPhanHoiPanel(parentFrame, pH));
+                    this.validate();
+                    this.repaint();
+                }
+>>>>>>> 21efa905cb1d4f2dd027ae74689bce1268a4f5bf
             }
 
         }
