@@ -5,34 +5,51 @@
  */
 package models;
 
+import java.sql.Date;
+
 /**
  *
  * @author Vostro 3580
  */
-public class QLPhanHoi {
-    private int maPhanHoi;
-    private String ngayPhanHoi;
+public class PhanHoi {
+    private int maPA;
+    private Date ngayPhanHoi;
     private String nguoiLienQuan;
     private String noiDung;
     private String coQuan;
     
-    public QLPhanHoi(){
+    public PhanHoi(){
         
     }
 
-    public int getMaPhanHoi() {
-        return maPhanHoi;
+    public PhanHoi(int maPA, Date ngayPhanHoi, String nguoiLienQuan, String noiDung, String coQuan) {
+        this.maPA = maPA;
+        this.ngayPhanHoi = ngayPhanHoi;
+        this.nguoiLienQuan = nguoiLienQuan;
+        this.noiDung = noiDung;
+        this.coQuan = coQuan;
     }
 
-    public void setMaPhanHoi(int maPhanHoi) {
-        this.maPhanHoi = maPhanHoi;
+    public PhanHoi(Date ngayPhanHoi, String nguoiLienQuan, String noiDung, String coQuan) {
+        this.ngayPhanHoi = ngayPhanHoi;
+        this.nguoiLienQuan = nguoiLienQuan;
+        this.noiDung = noiDung;
+        this.coQuan = coQuan;
     }
 
-    public String getNgayPhanHoi() {
+    public int getMaPA() {
+        return maPA;
+    }
+
+    public void setMaPA(int maPA) {
+        this.maPA = maPA;
+    }
+
+    public Date getNgayPhanHoi() {
         return ngayPhanHoi;
     }
 
-    public void setNgayPhanHoi(String ngayPhanHoi) {
+    public void setNgayPhanHoi(Date ngayPhanHoi) {
         this.ngayPhanHoi = ngayPhanHoi;
     }
 

@@ -9,153 +9,172 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Vector;
-import models.QLPhanHoi;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import models.PhanHoi;
 import service.MySQLConnection;
 /**
  *
  * @author Vostro 3580
  */
 public class PhanHoiController {
-//    public ResultSet search(String data, String selected){
-//        Connection conn=null;
-//        Statement st=null;
-//        ResultSet rs=null;
-//        try{
-//            conn=MySQLConnection.getMySQLConnection();
-//            String sql=null;
-//            st=conn.createStatement();
-//            if(data.length()>0){
-//                sql="select * from PHAN_ANH where NGUOI_PHAN_ANH like N'"+data+"%' and PHAN_LOAI=N'"+selected+"'"; 
-//            }
-//            rs=st.executeQuery(sql);
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//        }finally{
-//            return rs;
-//        }
-//    }
     
-    public ResultSet xuatPH(String data){
-        Connection conn=null;
-        Statement st=null;
-        ResultSet rs=null;
-        try{
-            conn=MySQLConnection.getMySQLConnection();
-            String sql="select * from PhanHoi where MA_PHAN_HOI="+data;
-            st=conn.createStatement();
-            rs=st.executeQuery(sql);
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
-            return rs;
-        }
-    }
-    
-    public ResultSet ghiNhanPhanHoi(String data){
-        Connection conn=null;
-        ResultSet rs=null;
-        Statement st=null;
-        try{
-            conn=MySQLConnection.getMySQLConnection();
-            String sql="select * from PhanHoi where MA_PHAN_HOI="+data;
-            st=conn.createStatement();
-            rs=st.executeQuery(sql);
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
-            return rs;
-        }
-    }
-    
-    public static int add(QLPhanHoi ph){
-        Connection conn=null;
-        PreparedStatement ps=null;
-        int ret=-1;
-        try{
-        conn=MySQLConnection.getMySQLConnection();
-        String sql= "insert into PhanHoi values (?,?,?,?,?)";
-        ps=conn.prepareStatement(sql);
-        ps.setInt(1,ph.getMaPhanHoi());
-        ps.setDate(2, Date.valueOf(ph.getNgayPhanHoi())); 
-        ps.setString(3,ph.getNguoiLienQuan());
-        ps.setString(4,ph.getNoiDung());
-        ps.setString(5,ph.getCoQuan());
-        ret=ps.executeUpdate();
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
-            try{
-                if(conn!=null){
-                    conn.close();
-                }
-                
-                if(ps!=null){
-                    ps.close(); // tôi đọc thấy nó ghi sai cú pháp SQL :v
-                }
+    public static PhanHoi xuatPH(int data) {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        conn = MySQLConnection.getMySQLConnection();
+        String sql = "select * from PHAN_HOI where MA_PHAN_ANH = " + data;
+        PhanHoi phanHoi = new PhanHoi();
         
-            }catch(Exception ex){
-                ex.printStackTrace();
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            
+            while (rs.next()) {
+                phanHoi.setMaPA(rs.getInt("MA_PHAN_ANH"));
+                phanHoi.setNgayPhanHoi(rs.getDate("NGAY_PHAN_HOI"));
+                phanHoi.setNguoiLienQuan(rs.getString("NGUOI_LIEN_QUAN"));
+                phanHoi.setNoiDung(rs.getString("NOI_DUNG"));
+                phanHoi.setCoQuan(rs.getString("CO_QUAN"));
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            return ret;// de tôi check database
+            
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            return phanHoi;
         }
+        
     }
     
-//    public resultSet Show(){
-//        Connection conn=null;
-//        Statement st=null;
-//        ResultSet rs=null;
-//        try{
-//            conn=MySQLConnection.getMySQLConnection();
-//            st=conn.createStatement();
-//            String sql="select * from PHAN_ANH";
-//            rs=st.executeQuery(sql);
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//        }finally{
-//            return rs;
-//        }
-//    }
-    
-//    public Vector<String> comboxLinhVuc(){
-//        Connection conn=null;
-//        Statement st=null;
-//        ResultSet rs=null;
-//        Vector<String> data=null;
-//        try{
-//            conn=MySQLConnection.getMySQLConnection();
-//            st=conn.createStatement();
-//            String sql="select distinct PHAN_LOAI from PHAN_ANH ";
-//            rs=st.executeQuery(sql);
-//            data=new Vector<String>();
-//            while(rs.next()){
-//                data.add(rs.getString("PHAN_LOAI").toString());
-//            }
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//        }finally{
-//            return data;
-//        }
-//    }
-//    
-    public int edit(QLPhanHoi pH){
-        String sql="Update PhanHoi set NGAY_PHAN_HOI=?, NGUOI_LIEN_QUAN=?, NOI_DUNG=?, CO_QUAN=? where MA_PHAN_HOI=?";
-        Connection conn=null;
-        PreparedStatement st=null;
-        int ret=-1;
-        try{
-            conn=MySQLConnection.getMySQLConnection();
-            st=conn.prepareStatement(sql);
-            st.setDate(1, Date.valueOf(pH.getNgayPhanHoi()));
+    public static int add(PhanHoi ph) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        conn = MySQLConnection.getMySQLConnection();
+        String sql = "insert into PHAN_HOI (MA_PHAN_ANH, NGAY_PHAN_HOI, NGUOI_LIEN_QUAN, NOI_DUNG, CO_QUAN ) "
+                    + "values (?,?,?,?,?)";
+        int ret = -1;
+        try {
+            ps = conn.prepareStatement(sql);
+            
+            ps.setInt(1, ph.getMaPA());
+            ps.setDate(2, ph.getNgayPhanHoi()); 
+            ps.setString(3, ph.getNguoiLienQuan());
+            ps.setString(4, ph.getNoiDung());
+            ps.setString(5, ph.getCoQuan());
+            
+            ret = ps.executeUpdate();
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            return ret;
+        }    
+    }
+      
+    public int edit(PhanHoi pH) {
+        String sql = "Update PHAN_HOI set NGAY_PHAN_HOI=?, NGUOI_LIEN_QUAN=?, NOI_DUNG=?, CO_QUAN=? where MA_PHAN_ANH = ?";
+        Connection conn = null;
+        PreparedStatement st = null;
+        int ret = -1;
+        try {
+            conn = MySQLConnection.getMySQLConnection();
+            st = conn.prepareStatement(sql);
+            
+            st.setDate(1, pH.getNgayPhanHoi());
             st.setString(2, pH.getNguoiLienQuan());
             st.setString(3, pH.getNoiDung());
             st.setString(4, pH.getCoQuan());
-            st.setInt(5, pH.getMaPhanHoi());
-            ret=st.executeUpdate();
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
+            st.setInt(5, pH.getMaPA());
+            ret = st.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
             return ret;
-        }
+        }    
+    }
+    
+    public static boolean isPhanHoiExist(int maPA) {
+        Connection conn = null;
+        conn = MySQLConnection.getMySQLConnection();
+        ResultSet rs = null;
+        String sql = "select * from PHAN_HOI where MA_PHAN_ANH=" + maPA;
+        Statement stmt = null;
+        boolean check = false;
+        
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+             
+            check = rs.isBeforeFirst();
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PhanHoiController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            return check;  
+        }    
     }
 }

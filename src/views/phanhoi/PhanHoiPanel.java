@@ -10,6 +10,7 @@ import controllers.TimKiemController;
 import controllers.phananh.SuaPAController;
 import controllers.phananh.XemPAController;
 import controllers.phanhoi.PhanHoiController;
+import controllers.phanhoi.XemPHController;
 import java.awt.BorderLayout;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import models.PhanAnh;
-import models.QLPhanHoi;
+import models.PhanHoi;
 
 /**
  *
@@ -232,63 +233,45 @@ public class PhanHoiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_thongTinPhanHoiComponentHidden
 
     private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertActionPerformed
-         int selected= thongTinPhanHoi.getSelectedRow();
-        if(selected==-1){
-            JOptionPane.showMessageDialog(this, "Không có hàng nào được chọn !");
-            return;
-        }else{
-            String maPA=model.getValueAt(selected, 0).toString();
-            try{
-                ResultSet rs=new PhanHoiController().ghiNhanPhanHoi(maPA);
-                if(rs.isBeforeFirst()){
+        int selected = thongTinPhanHoi.getSelectedRow();
+        if (selected == -1) {
+            JOptionPane.showMessageDialog(this, "Hãy chọn một phản ánh");
+        } else {
+            int maPA = listSearch.get(selected).getId();
+            
+            if (PhanHoiController.isPhanHoiExist(maPA)) {
                     JOptionPane.showMessageDialog(this, "Phản hồi này đã được ghi nhận, bấm xem phản hồi !");
-                    return;
-                }else{
-                    this.removeAll();
-                    this.setLayout(new BorderLayout());
-                    this.add(new ThemPhanHoiPanel(parentFrame, maPA));
-                    this.validate();
-                    this.repaint();
-                }
-            }catch(Exception ex){
-                ex.printStackTrace();
+            } else {
+                this.removeAll();
+                this.setLayout(new BorderLayout());
+                this.add(new ThemPhanHoiPanel(parentFrame, maPA));
+                this.validate();
+                this.repaint();
             }
+
         }
     }//GEN-LAST:event_jButtonInsertActionPerformed
 
     private void btnDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailActionPerformed
-         ResultSet rs=null;
-        QLPhanHoi pH=new QLPhanHoi();
-        try{
-            int selected=thongTinPhanHoi.getSelectedRow();
-            if(selected==-1){
-                JOptionPane.showMessageDialog(this, "Chưa có hàng nào được chọn !");
-
-            }else{
-                String data=model.getValueAt(selected, 0).toString();
-                rs= new PhanHoiController().xuatPH(data);
-                if(rs.isBeforeFirst()==false){
-                    JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
-
-                }else{
-                   
-                    while(rs.next()){
-                        pH.setMaPhanHoi(rs.getInt("MA_PHAN_HOI"));
-                        pH.setNgayPhanHoi(String.valueOf(rs.getDate("NGAY_PHAN_HOI")));
-                        pH.setNguoiLienQuan(String.valueOf(rs.getString("NGUOI_LIEN_QUAN")));
-                        pH.setNoiDung(String.valueOf(rs.getString("NOI_DUNG")));
-                        pH.setCoQuan(String.valueOf(rs.getString("CO_QUAN")));
-                    }
-
-                    this.removeAll();
-                    this.setLayout(new BorderLayout());
-                    this.add(new XemPhanHoi(parentFrame, pH));
-                    this.validate();
-                    this.repaint();
-                }
+        
+        int selected = thongTinPhanHoi.getSelectedRow();
+        if (selected == -1) {
+            JOptionPane.showMessageDialog(this, "Hãy chọn một phản ánh");
+        } else {
+            int maPA = listSearch.get(selected).getId();          
+            if (!PhanHoiController.isPhanHoiExist(maPA)) {
+                JOptionPane.showMessageDialog(this, "Phản ánh này chưa có thông tin phản hồi!");
+            } else {
+                XemPHPanel panel = new XemPHPanel(parentFrame, maPA);
+                XemPHController controller = new XemPHController(maPA, panel);
+                
+                this.removeAll();
+                this.setLayout(new BorderLayout());
+                this.add(controller.getPanel());
+                this.validate();
+                this.repaint();
             }
-        }catch(Exception ex){
-            ex.printStackTrace();
+
         }
     }//GEN-LAST:event_btnDetailActionPerformed
 

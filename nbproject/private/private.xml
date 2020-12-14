@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/controllers/phanhoi/PhanHoiController.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/service/MySQLConnection.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/views/phanhoi/PhanHoiPanel.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/CNPM_Project_Nhom23/src/views/MainFrame.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phananh/PhanAnhPanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/MainFrame.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/XemPHPanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phanhoi/XemPHController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phanhoi/PhanHoiController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phananh/XemPAController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/PhanHoiPanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phananh/XemPAPanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/ThemPhanHoiPanel.java</file>
         </group>
     </open-files>
 </project-private>

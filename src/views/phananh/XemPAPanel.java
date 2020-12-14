@@ -95,10 +95,10 @@ public class XemPAPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Nội Dung:");
 
+        txtContent.setEditable(false);
         txtContent.setColumns(20);
         txtContent.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txtContent.setRows(5);
-        txtContent.setEnabled(false);
         jScrollPane1.setViewportView(txtContent);
 
         btnClose.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

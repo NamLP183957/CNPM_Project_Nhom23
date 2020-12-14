@@ -270,13 +270,15 @@ public class PhanAnhPanel extends javax.swing.JPanel {
             this.validate();
             this.repaint();
             
+        } else {
+            JOptionPane.showMessageDialog(this, "Hãy chọn một phản ánh!");
         }
     }//GEN-LAST:event_btnDetailViewActionPerformed
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
         // TODO add your handling code here:
         int rowselected = thongTinPhanAnh.getSelectedRow();
-        if(rowselected==-1){
+        if(rowselected == -1){
             JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để thay đổi");
             return;
         }

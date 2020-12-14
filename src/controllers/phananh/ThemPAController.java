@@ -20,10 +20,10 @@ import service.MySQLConnection;
  */
 public class ThemPAController {
     
-    public static void insert(PhanAnh pa) {
+    public static boolean insert(PhanAnh pa) {
         Connection conn = null;
         conn = MySQLConnection.getMySQLConnection();
-        
+        boolean result = false;
         String sql = "INSERT INTO phan_anh (NGUOI_PHAN_ANH, NOI_DUNG, NGAY_PHAN_ANH, PHAN_LOAI, TRANG_THAI) "
                             + "VALUES (?, ?, ?, ?, ?)";
         PreparedStatement stmt = null;
@@ -36,7 +36,7 @@ public class ThemPAController {
             stmt.setString(4, pa.getType());
             stmt.setString(5, pa.getState());
             
-            stmt.execute();
+            result = !stmt.execute();
             
         } catch (SQLException ex) {
             Logger.getLogger(controllers.phananh.ThemPAController.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,6 +56,7 @@ public class ThemPAController {
                     Logger.getLogger(controllers.phananh.ThemPAController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            return result;
         }
     }
     
