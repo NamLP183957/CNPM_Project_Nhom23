@@ -15,7 +15,7 @@ import models.QLPhanHoi;
  *
  * @author Vostro 3580
  */
-public class XemPhanHoi extends javax.swing.JPanel {
+public class XemPhanHoiPanel extends javax.swing.JPanel {
     
     JFrame parentFrame;
     private QLPhanHoi pH;
@@ -23,7 +23,7 @@ public class XemPhanHoi extends javax.swing.JPanel {
     /**
      * Creates new form XemPhanHoi
      */
-    public XemPhanHoi(JFrame parentFrame, QLPhanHoi pH) {
+    public XemPhanHoiPanel(JFrame parentFrame, QLPhanHoi pH) {
         this.parentFrame = parentFrame;
         this.pH=pH;
         this.MaPH=MaPH;
@@ -48,14 +48,13 @@ public class XemPhanHoi extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaND = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lb = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lbNgayPH = new javax.swing.JTextField();
-        lbNgLQ = new javax.swing.JTextField();
-        lbCoQuan = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        lbNgayPH = new javax.swing.JLabel();
+        lbNgLQ = new javax.swing.JLabel();
+        lbCoQuan = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Xem phản hồi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
@@ -77,15 +76,6 @@ public class XemPhanHoi extends javax.swing.JPanel {
             }
         });
 
-        btnEdit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(102, 0, 204));
-        btnEdit.setText("OK");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Ngày phản hồi");
 
@@ -94,15 +84,6 @@ public class XemPhanHoi extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Cơ quan");
-
-        lbNgayPH.setEditable(false);
-        lbNgayPH.setBackground(new java.awt.Color(255, 255, 204));
-
-        lbNgLQ.setEditable(false);
-        lbNgLQ.setBackground(new java.awt.Color(255, 255, 204));
-
-        lbCoQuan.setEditable(false);
-        lbCoQuan.setBackground(new java.awt.Color(255, 255, 204));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Edit");
@@ -117,13 +98,11 @@ public class XemPhanHoi extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(232, 232, 232)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,37 +117,36 @@ public class XemPhanHoi extends javax.swing.JPanel {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbNgayPH)
-                                    .addComponent(lbNgLQ)
-                                    .addComponent(lbCoQuan, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))))
+                                    .addComponent(lbCoQuan, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                                    .addComponent(lbNgLQ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbNgayPH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNgayPH, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNgayPH, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(lbNgLQ))
+                    .addComponent(lbNgLQ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(lbCoQuan))
+                    .addComponent(lbCoQuan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -198,28 +176,12 @@ public class XemPhanHoi extends javax.swing.JPanel {
                     this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-        int ret=JOptionPane.showConfirmDialog(this, "Bạn muốn sửa phản hồi này ?","Yes", JOptionPane.YES_NO_OPTION);
-        if(ret!=JOptionPane.YES_OPTION){
-            return;
-        }
-        new PhanHoiController().edit(pH);
-        if(ret!=-1){
-            JOptionPane.showMessageDialog(this,"Bạn đã sửa phản hồi thành công !");
-        }
-    }//GEN-LAST:event_btnEditActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        lbNgayPH.setEditable(true);
-        lbNgLQ.setEditable(true);
-        lbCoQuan.setEditable(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEdit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -228,9 +190,9 @@ public class XemPhanHoi extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb;
-    private javax.swing.JTextField lbCoQuan;
-    private javax.swing.JTextField lbNgLQ;
-    private javax.swing.JTextField lbNgayPH;
+    private javax.swing.JLabel lbCoQuan;
+    private javax.swing.JLabel lbNgLQ;
+    private javax.swing.JLabel lbNgayPH;
     private javax.swing.JTextArea txtAreaND;
     // End of variables declaration//GEN-END:variables
 }
