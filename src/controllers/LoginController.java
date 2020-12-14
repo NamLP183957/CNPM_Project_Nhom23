@@ -8,7 +8,7 @@ package controllers;
 import java.util.ArrayList;
 import models.Account;
 import java.sql.*;
-import service.MySQLConnection;
+import services.MySQLConnection;
 /**
  *
  * @author Tran Van Tuyen
