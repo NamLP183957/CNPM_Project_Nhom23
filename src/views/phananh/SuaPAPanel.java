@@ -60,8 +60,10 @@ public class SuaPAPanel extends javax.swing.JPanel {
         saveButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1156, 838));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sửa phản ánh", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
 
         lbName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -108,7 +110,7 @@ public class SuaPAPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(contentTextFiled);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        saveButton.setText("Save");
+        saveButton.setText("Lưu");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -116,7 +118,7 @@ public class SuaPAPanel extends javax.swing.JPanel {
         });
 
         backButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        backButton.setText("Back");
+        backButton.setText("Hủy");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);

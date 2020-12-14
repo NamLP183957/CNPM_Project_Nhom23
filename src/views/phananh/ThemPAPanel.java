@@ -111,7 +111,7 @@ public class ThemPAPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(txtContent);
 
         btnCreate.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnCreate.setText("Create");
+        btnCreate.setText("Thêm");
         btnCreate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public class ThemPAPanel extends javax.swing.JPanel {
         });
 
         btnBack.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Thoát");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +237,7 @@ public class ThemPAPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

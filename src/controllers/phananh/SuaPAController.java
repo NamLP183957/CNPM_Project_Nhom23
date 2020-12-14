@@ -18,12 +18,15 @@ import service.MySQLConnection;
  */
 public class SuaPAController {
     public static void deletePhanAnh(int id){
-        String sql = "DELETE FROM PHAN_ANH WHERE MA_PHAN_ANH="+id+";";
+        String sql = "DELETE FROM PHAN_ANH WHERE MA_PHAN_ANH = " + id + ";";
+        String sql2 = "DELETE FROM PHAN_HOI WHERE MA_PHAN_ANH = " + id +";";
+                
         Connection conn = MySQLConnection.getMySQLConnection();
         Statement stmt = null;
         try{
             stmt = conn.createStatement();
             stmt.execute(sql);
+            stmt.execute(sql2);
         } catch(Exception e) {
             System.out.printf("no connect delete Phan anh");
         } finally {

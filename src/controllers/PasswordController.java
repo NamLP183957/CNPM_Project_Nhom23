@@ -21,8 +21,7 @@ import service.MySQLConnection;
 public class PasswordController {
     ArrayList<Account> list=LoginController.getAccount();
     public static int getIdOfUserChange(String username,String password,ArrayList<Account> list){ 
-            for (int i = 0; i < list.size(); i++) {  
-               // System.out.println(( list.get(i).getPassword().equals(password))); 
+            for (int i = 0; i < list.size(); i++) {   
                 if (( list.get(i).getUserName().equals(username) ) && (list.get(i).getPassword().equals(password))){   
                     return list.get(i).getId();         
                }

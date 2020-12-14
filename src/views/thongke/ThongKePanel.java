@@ -70,7 +70,7 @@ public class ThongKePanel extends javax.swing.JPanel {
         TieuChiCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trạng thái", "Lĩnh vực", "Quý", "Năm" }));
 
         ShowBtn.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        ShowBtn.setText("Show");
+        ShowBtn.setText("Hiện");
         ShowBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ShowBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

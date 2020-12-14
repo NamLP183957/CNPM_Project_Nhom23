@@ -207,11 +207,6 @@ public class ThayDoiPassword extends javax.swing.JFrame {
                 else{
                      JOptionPane.showMessageDialog(this, "Mật khẩu mới phải trùng nhau.");
                 }
-                /*this.setVisible(false);
-                MainFrame mainFrame = new MainFrame();
-                mainFrame.setLocationRelativeTo(null);
-                mainFrame.setResizable(false);
-                mainFrame.setVisible(true);*/
             }
             else{
                 JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng", "Chú ý!!", JOptionPane.ERROR_MESSAGE);

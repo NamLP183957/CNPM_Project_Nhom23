@@ -3,34 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phananh/PhanAnhPanel.java</file>
             <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/MainFrame.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/SuaPhanHoiPanel.java</file>
             <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/XemPHPanel.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phanhoi/XemPHController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phananh/ThemPAPanel.java</file>
             <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phanhoi/PhanHoiController.java</file>
             <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phananh/XemPAController.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/PhanHoiPanel.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phananh/XemPAPanel.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/ThemPhanHoiPanel.java</file>
-=======
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phanhoi/SuaPhanHoiPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/controllers/phananh/XemPAController.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phanhoi/PhanHoiPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phananh/ThemPAPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/controllers/phanhoi/PhanHoiController.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/LoginFrame.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phananh/XemPAPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/controllers/phananh/ThemPAController.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/ThayDoiPassword.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phanhoi/XemPhanHoiPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phanhoi/ThemPhanHoiPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/MainFrame.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/HomePagePanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phananh/SuaPAPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/views/phananh/PhanAnhPanel.java</file>
-            <file>file:/C:/Users/Vostro%203580/Desktop/CNPM_Project_Nhom23/src/controllers/TimKiemController.java</file>
->>>>>>> 21efa905cb1d4f2dd027ae74689bce1268a4f5bf
         </group>
     </open-files>
 </project-private>

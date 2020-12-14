@@ -57,27 +57,23 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1156, 909));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thêm phản hồi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(102, 0, 153));
         jPanel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 0, 153));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Ngày Phản Hồi");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 0, 153));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Cá Nhân, Tổ Chức Liên Quan");
 
         txtNgLQ.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 0, 153));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Cơ Quan Phản Hồi");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Nội Dung");
 
         txtAreaND.setColumns(20);
@@ -166,7 +162,7 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
                                 .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtNgLQ, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbCoQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 35, Short.MAX_VALUE))
+                .addGap(0, 63, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(382, 382, 382)
                 .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)

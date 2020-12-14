@@ -240,7 +240,7 @@ public class PhanHoiPanel extends javax.swing.JPanel {
             } else {
                 this.removeAll();
                 this.setLayout(new BorderLayout());
-                this.add(new ThemPhanHoiPanel(parentFrame, maPA));
+                this.add(new ThemPhanHoiPanel(this.parentFrame, maPA));
                 this.validate();
                 this.repaint();
             }
@@ -249,8 +249,6 @@ public class PhanHoiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonInsertActionPerformed
 
     private void btnDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailActionPerformed
-<<<<<<< HEAD
-        
         int selected = thongTinPhanHoi.getSelectedRow();
         if (selected == -1) {
             JOptionPane.showMessageDialog(this, "Hãy chọn một phản ánh");
@@ -259,7 +257,7 @@ public class PhanHoiPanel extends javax.swing.JPanel {
             if (!PhanHoiController.isPhanHoiExist(maPA)) {
                 JOptionPane.showMessageDialog(this, "Phản ánh này chưa có thông tin phản hồi!");
             } else {
-                XemPHPanel panel = new XemPHPanel(parentFrame, maPA);
+                XemPHPanel panel = new XemPHPanel(this.parentFrame, maPA);
                 XemPHController controller = new XemPHController(maPA, panel);
                 
                 this.removeAll();
@@ -267,39 +265,7 @@ public class PhanHoiPanel extends javax.swing.JPanel {
                 this.add(controller.getPanel());
                 this.validate();
                 this.repaint();
-=======
-         ResultSet rs=null;
-        QLPhanHoi pH=new QLPhanHoi();
-        try{
-            int selected=thongTinPhanHoi.getSelectedRow();
-            if(selected==-1){
-                JOptionPane.showMessageDialog(this, "Chưa có hàng nào được chọn !");
-
-            }else{
-                String data=model.getValueAt(selected, 0).toString();
-                rs= new PhanHoiController().xuatPH(data);
-                if(rs.isBeforeFirst()==false){
-                    JOptionPane.showMessageDialog(this, "Phản ánh này chưa được ghi nhận phản hồi, hãy ghi nhận trước !");
-
-                }else{
-                   
-                    while(rs.next()){
-                        pH.setMaPhanHoi(rs.getInt("MA_PHAN_HOI"));
-                        pH.setNgayPhanHoi(String.valueOf(rs.getDate("NGAY_PHAN_HOI")));
-                        pH.setNguoiLienQuan(String.valueOf(rs.getString("NGUOI_LIEN_QUAN")));
-                        pH.setNoiDung(String.valueOf(rs.getString("NOI_DUNG")));
-                        pH.setCoQuan(String.valueOf(rs.getString("CO_QUAN")));
-                    }
-
-                    this.removeAll();
-                    this.setLayout(new BorderLayout());
-                    this.add(new XemPhanHoiPanel(parentFrame, pH));
-                    this.validate();
-                    this.repaint();
-                }
->>>>>>> 21efa905cb1d4f2dd027ae74689bce1268a4f5bf
             }
-
         }
     }//GEN-LAST:event_btnDetailActionPerformed
 

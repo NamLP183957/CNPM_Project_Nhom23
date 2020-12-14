@@ -34,7 +34,7 @@ public class XemPHController {
 
             panel.setData(strDate, phanHoi.getCoQuan(), phanHoi.getNguoiLienQuan(), phanHoi.getNoiDung());
         } else {
-            System.out.println("controllers.phanhoi.XemPHController.setData()");
+            System.out.println("Error controllers.phanhoi.XemPHController.setData()");
         }
         
     }

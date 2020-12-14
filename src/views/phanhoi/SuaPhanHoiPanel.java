@@ -5,17 +5,73 @@
  */
 package views.phanhoi;
 
+import controllers.phanhoi.PhanHoiController;
+import controllers.phanhoi.SuaPHController;
+import controllers.phanhoi.XemPHController;
+import java.awt.BorderLayout;
+import java.sql.Date;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import models.PhanHoi;
+import utility.DatePlus;
+
 /**
  *
  * @author Vostro 3580
  */
 public class SuaPhanHoiPanel extends javax.swing.JPanel {
+    
+    JFrame parentFrame;
+    int maPA;
 
     /**
      * Creates new form SuaPhanHoiPanel
      */
-    public SuaPhanHoiPanel() {
+    public SuaPhanHoiPanel(JFrame parentFrame, int maPA) {
+        this.parentFrame = parentFrame;
         initComponents();
+        this.maPA = maPA;
+        setData();
+    }
+    
+    private void setData() {
+        PhanHoi phanHoi = PhanHoiController.xuatPH(maPA);
+        DatePlus datePlus = new DatePlus(phanHoi.getNgayPhanHoi());
+        
+        int day = datePlus.getDay();
+        int month = datePlus.getMonth();
+        int year = datePlus.getYear();
+        
+        for(int i = 0; i < cbDay.getItemCount(); i++) {
+            if (day == Integer.parseInt(cbDay.getItemAt(i))) {
+                cbDay.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        for(int i = 0; i < cbMonth.getItemCount(); i++) {
+            if (month == Integer.parseInt(cbMonth.getItemAt(i))) {
+                cbMonth.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        for(int i = 0; i < cbYear.getItemCount(); i++) {
+            if (year == Integer.parseInt(cbYear.getItemAt(i))) {
+                cbYear.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        for(int i = 0; i < cbCoQuan.getItemCount(); i++) {
+            if (phanHoi.getCoQuan().equals(cbCoQuan.getItemAt(i))) {
+                cbCoQuan.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        textContent.setText(phanHoi.getNoiDung());
+        txtNgLQ.setText(phanHoi.getNguoiLienQuan());
     }
 
     /**
@@ -27,22 +83,33 @@ public class SuaPhanHoiPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNgLQ = new javax.swing.JTextField();
-        txtCQ = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        textContent = new javax.swing.JTextArea();
+        cbDay = new javax.swing.JComboBox<>();
+        cbMonth = new javax.swing.JComboBox<>();
+        cbYear = new javax.swing.JComboBox<>();
         btnUpdate = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        cbCoQuan = new javax.swing.JComboBox<>();
 
-        setBackground(new java.awt.Color(255, 255, 204));
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sửa phản hồi ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 18))); // NOI18N
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Ngày phản hồi");
@@ -58,107 +125,171 @@ public class SuaPhanHoiPanel extends javax.swing.JPanel {
 
         txtNgLQ.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        txtCQ.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        textContent.setColumns(20);
+        textContent.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        textContent.setRows(5);
+        jScrollPane1.setViewportView(textContent);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        cbDay.setBackground(new java.awt.Color(240, 240, 240));
+        cbDay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jComboBox1.setBackground(new java.awt.Color(240, 240, 240));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbMonth.setBackground(new java.awt.Color(240, 240, 240));
+        cbMonth.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        jComboBox2.setBackground(new java.awt.Color(240, 240, 240));
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-
-        jComboBox3.setBackground(new java.awt.Color(240, 240, 240));
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2031", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
+        cbYear.setBackground(new java.awt.Color(240, 240, 240));
+        cbYear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2031", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" }));
 
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnUpdate.setText("Update");
+        btnUpdate.setText("Lưu");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Hủy");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        cbCoQuan.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cbCoQuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UBND QUẬN HAI BÀ TRƯNG", "TAND QUẬN HAI BÀ TRƯNG", "CÔNG AN QUẬN HAI BÀ TRƯNG", "PHÒNG THANH TRA QUẬN HAI BÀ TRƯNG", "BHXH QUẬN HAI BÀ TRƯNG", "VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI QUẬN HAI BÀ TRƯNG", "PHÒNG LAO ĐỘNG THƯƠNG BINH XÃ HỘI" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1073, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(btnUpdate)
-                        .addGap(165, 165, 165)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(58, 58, 58)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtNgLQ)
-                                    .addComponent(txtCQ))))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                                .addComponent(cbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbCoQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNgLQ))))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(199, 199, 199)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(344, 344, 344))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cbMonth, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(cbYear)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(jComboBox2)
-                    .addComponent(jComboBox1))
-                .addGap(29, 29, 29)
+                    .addComponent(cbDay))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbCoQuan, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNgLQ, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCQ, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                    .addComponent(txtNgLQ, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                        .addGap(93, 93, 93))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        String nguoiLQ = txtNgLQ.getText();
+        String content = textContent.getText();
+        
+        if (nguoiLQ.equals("")) {
+            JOptionPane.showMessageDialog(this, "Chưa nhập cơ quan phản hồi!");
+        } else if (content.equals("")) {
+            JOptionPane.showMessageDialog(this, "Chưa nhập nội dung phản hồi");
+        } else {
+            String day = cbDay.getSelectedItem().toString();
+            String month = cbMonth.getSelectedItem().toString();
+            String year = cbYear.getSelectedItem().toString();
+            
+            Date date = Date.valueOf(year + "-" + month + "-" + day);
+            
+            String coQuan = cbCoQuan.getSelectedItem().toString();
+            
+            boolean rs = SuaPHController.changePH(new PhanHoi(maPA, date, nguoiLQ, content, coQuan));
+            
+            if (rs) {
+                JOptionPane.showMessageDialog(this, "Sửa thành công!");
+                XemPHPanel panel = new XemPHPanel(this.parentFrame, this.maPA);
+                XemPHController controller = new XemPHController(this.maPA, panel);
+
+                this.removeAll();
+                this.setLayout(new BorderLayout());
+                this.add(controller.getPanel());
+                this.validate();
+                this.repaint();
+            } else {
+                JOptionPane.showMessageDialog(this, "Sửa không thành công!");
+            }
+        }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        XemPHPanel panel = new XemPHPanel(this.parentFrame, this.maPA);
+        XemPHController controller = new XemPHController(this.maPA, panel);
+                
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        this.add(controller.getPanel());
+        this.validate();
+        this.repaint();
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> cbCoQuan;
+    private javax.swing.JComboBox<String> cbDay;
+    private javax.swing.JComboBox<String> cbMonth;
+    private javax.swing.JComboBox<String> cbYear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField txtCQ;
+    private javax.swing.JTextArea textContent;
     private javax.swing.JTextField txtNgLQ;
     // End of variables declaration//GEN-END:variables
 }

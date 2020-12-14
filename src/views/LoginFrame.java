@@ -179,9 +179,7 @@ public class LoginFrame extends javax.swing.JFrame {
             test=false;
         }
         if(test){
-            if (lc.login(userName1, password1,list)){
-                //System.out.println(lc.login(userName1, password1,list));
-                //boolean t=lc.login(userName1, password1,list);    
+            if (lc.login(userName1, password1,list)){ 
                 System.out.println("login="+lc.login(userName1, password1,list));
                 this.setVisible(false);
                 MainFrame mainFrame = new MainFrame();

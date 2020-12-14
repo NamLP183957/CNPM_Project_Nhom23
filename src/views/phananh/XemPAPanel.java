@@ -69,6 +69,7 @@ public class XemPAPanel extends javax.swing.JPanel {
         txtContent = new javax.swing.JTextArea();
         btnClose = new javax.swing.JButton();
 
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
         panelContent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nội Dung Phản Ánh", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 24))); // NOI18N
         panelContent.setPreferredSize(new java.awt.Dimension(1156, 909));
 
@@ -102,7 +103,7 @@ public class XemPAPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(txtContent);
 
         btnClose.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnClose.setText("Close");
+        btnClose.setText("Đóng");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);
