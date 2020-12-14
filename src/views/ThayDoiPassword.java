@@ -47,24 +47,33 @@ public class ThayDoiPassword extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Thay đổi mật khẩu");
 
-        jLabelUserName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelUserName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelUserName.setText("Tên đăng nhập");
 
-        jLabelPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelPassword.setText("Mật khẩu cũ");
 
-        jLabelNewPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelNewPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelNewPassword.setText("Mật khẩu mới");
 
-        jLabelNewPasswordAgain.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelNewPasswordAgain.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelNewPasswordAgain.setText("Nhập lại mật khẩu mới");
+
+        jTextFieldUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jPasswordFieldNewPasswordAgain.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jPasswordFieldPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("         THAY ĐỔI MẬT KHẨU");
 
+        jPasswordFieldNewPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
         jButtonChange.setBackground(new java.awt.Color(0, 204, 51));
-        jButtonChange.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButtonChange.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonChange.setText("THAY ĐỔI");
         jButtonChange.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -81,7 +90,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
         });
 
         btnBack.setBackground(new java.awt.Color(0, 204, 51));
-        btnBack.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnBack.setText("QUAY LẠI");
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -102,12 +111,12 @@ public class ThayDoiPassword extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+                .addGap(118, 118, 118)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,11 +124,11 @@ public class ThayDoiPassword extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                                 .addComponent(jTextFieldUsername))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
                         .addComponent(jPasswordFieldNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelNewPasswordAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelNewPasswordAgain)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -134,7 +143,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
