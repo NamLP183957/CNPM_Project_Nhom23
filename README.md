@@ -36,7 +36,7 @@ UPDATE, DELETE trên các bảng dữ liệu)
 * views: chứa các lớp kế thừa từ javax.swing.* định nghĩa các
 màn hình giao diện người dùng cho ứng dụng  
 
-## TRIỂN KHAI
+## TRIỂN KHAI MÃ NGUỒN 
 
 * **Bước 1:** Download file zip về máy tính và thực hiện giải nén
 
@@ -52,7 +52,31 @@ màn hình giao diện người dùng cho ứng dụng
 
 * **Bước 5:** Chạy file LoginFrame.java để bắt đầu chạy thử
 
+## HƯỚNG DẪN CHẠY PHẦN MỀM
 
+* **Bước 1:** Vào thư mục dist của Project
+  
+  ![VaoThuMucDist](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/CauTrucThuMuc.jpg)
+  
+* **Bước 2:** Click vào QuanLyPhanAnhKienNghi.jar để bắt đầu chạy phần mềm
+  
+  ![ClickFile_jar](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/ClickFile_jar.jpg)
+  
+* **Bước 3:** Đăng nhập tài khoản
+
+   ![DangNhap](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/DangNhap.jpg)
+
+* **Bước 4:** Tại màn hình chính chọn các chức năng mà bạn muốn
+  
+  * Xem phản ánh, tìm kiếm phản ánh, thêm phản ánh...
+     ![PhanAnh](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/PhanAnhPanel.jpg)
+  * Xem phản hồi, thêm phản hồi
+
+     ![PhanHoi](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/PhanHoiPanel.jpg)
+
+  * Thống kê các phản ánh theo từng tiêu chí
+     ![ThongKe](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/ThongKePanel.jpg)
+     
 ## THÀNH VIÊN ĐÓNG GÓP
 
 Hoàng Trung Hiếu (hieu.ht183915@sis.hust.edu.vn)
