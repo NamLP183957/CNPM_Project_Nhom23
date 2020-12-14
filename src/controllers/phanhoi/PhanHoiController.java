@@ -5,19 +5,17 @@
  */
 package controllers.phanhoi;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.PhanHoi;
-import service.MySQLConnection;
+import services.MySQLConnection;
 /**
  *
- * @author Vostro 3580
+ * @author Le Minh Nghia
  */
 public class PhanHoiController {
     

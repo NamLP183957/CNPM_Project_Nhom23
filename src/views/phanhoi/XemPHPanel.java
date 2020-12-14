@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author THINKBOOK
+ * @author Le Minh Nghia
  */
 public class XemPHPanel extends javax.swing.JPanel {
     

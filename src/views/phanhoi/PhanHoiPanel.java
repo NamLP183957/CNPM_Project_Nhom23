@@ -5,26 +5,19 @@
  */
 package views.phanhoi;
 
-import views.phananh.*;
 import controllers.TimKiemController;
-import controllers.phananh.SuaPAController;
-import controllers.phananh.XemPAController;
 import controllers.phanhoi.PhanHoiController;
 import controllers.phanhoi.XemPHController;
 import java.awt.BorderLayout;
-import java.sql.Date;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import models.PhanAnh;
-import models.PhanHoi;
 
 /**
  *
- * @author acer
+ * @author Tran Văn Tuyen
  */
 public class PhanHoiPanel extends javax.swing.JPanel {
 
@@ -311,15 +304,13 @@ public class PhanHoiPanel extends javax.swing.JPanel {
        
     }
     public void showResult(){
-//            if(listSearch.isEmpty()) 
-//                JOptionPane.showMessageDialog(thongTinPhanAnh, "Không tồn tại dữ liệu cần tìm");
-            for (int i = 0; i < listSearch.size(); i++) {
-                model.addRow(new Object[]{listSearch.get(i).getName(),
+        for (int i = 0; i < listSearch.size(); i++) {
+            model.addRow(new Object[]{listSearch.get(i).getName(),
                                             listSearch.get(i).getContent(),
                                             listSearch.get(i).getDate(),
                                             listSearch.get(i).getType(),
                                             listSearch.get(i).getState()});   
-            }
+        }
     }
 
  

@@ -13,11 +13,11 @@ import java.sql.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.PhanHoi;
-import utility.DatePlus;
+import utilities.DatePlus;
 
 /**
  *
- * @author Vostro 3580
+ * @author Le Minh Nghia
  */
 public class SuaPhanHoiPanel extends javax.swing.JPanel {
     

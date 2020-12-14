@@ -12,7 +12,7 @@ import views.phananh.XemPAPanel;
 
 /**
  *
- * @author THINKBOOK
+ * @author Hoang Trung Hieu
  */
 public class XemPAController {
     

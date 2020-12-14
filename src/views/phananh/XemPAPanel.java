@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author THINKBOOK
+ * @author Hoang Trung Hieu
  */
 public class XemPAPanel extends javax.swing.JPanel {
     

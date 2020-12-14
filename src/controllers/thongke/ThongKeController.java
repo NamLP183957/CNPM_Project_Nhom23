@@ -5,7 +5,6 @@
  */
 package controllers.thongke;
 
-import java.awt.FlowLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,11 +20,11 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import service.MySQLConnection;
+import services.MySQLConnection;
 
 /**
  *
- * @author ADMIN
+ * @author Le Phuong Nam
  */
 public class ThongKeController {
     private DefaultCategoryDataset dataset;

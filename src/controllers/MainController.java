@@ -16,13 +16,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import views.HomePagePanel;
 import views.phananh.PhanAnhPanel;
-import views.phananh.ThemPAPanel;
 import views.thongke.ThongKePanel;
 import views.phanhoi.PhanHoiPanel;
 
 /**
  *
- * @author ADMIN
+ * @author Le Phuong Nam
  */
 public class MainController {
     private JFrame jfrMain;

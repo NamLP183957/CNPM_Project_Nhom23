@@ -13,7 +13,7 @@ import models.Account;
 
 /**
  *
- * @author acer
+ * @author Tran Van Tuyen
  */
 public class LoginFrame extends javax.swing.JFrame {
 

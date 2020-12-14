@@ -9,7 +9,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Vostro 3580
+ * @author Le Minh Nghia
  */
 public class PhanHoi {
     private int maPA;

@@ -44,7 +44,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPasswordFieldNewPassword = new javax.swing.JPasswordField();
         jButtonChange = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,20 +80,20 @@ public class ThayDoiPassword extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 51));
-        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("QUAY LẠI");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBack.setBackground(new java.awt.Color(0, 204, 51));
+        btnBack.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnBack.setText("QUAY LẠI");
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
+                btnBackMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                btnBackMouseExited(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -125,7 +125,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPasswordFieldNewPasswordAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(239, Short.MAX_VALUE))
         );
@@ -153,7 +153,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67))
         );
 
@@ -162,41 +162,40 @@ public class ThayDoiPassword extends javax.swing.JFrame {
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
         ArrayList<Account> list=LoginController.getAccount();
-        //System.out.println(list.get(1).getPassword());
-        LoginController lc=new LoginController();
-        String userName1=jTextFieldUsername.getText();
-        String password1=String.valueOf(jPasswordFieldPassword.getPassword());
-        String newPassword1=String.valueOf(jPasswordFieldNewPassword.getPassword());
-        String newPassword2=String.valueOf(jPasswordFieldNewPasswordAgain.getPassword());
-        boolean test=true;
-        int k=newPassword1.compareTo(newPassword2) ;
-        if (userName1.length()==0){
+        LoginController lc = new LoginController();
+        String userName1 = jTextFieldUsername.getText();
+        String password1 = String.valueOf(jPasswordFieldPassword.getPassword());
+        String newPassword1 = String.valueOf(jPasswordFieldNewPassword.getPassword());
+        String newPassword2 = String.valueOf(jPasswordFieldNewPasswordAgain.getPassword());
+        boolean test = true;
+        int k = newPassword1.compareTo(newPassword2) ;
+        if (userName1.length() == 0) {
             JOptionPane.showMessageDialog(this, "Tên đăng nhập không được để trống");
             test=false;
         }
-        if (test && (password1==null)){
-             JOptionPane.showMessageDialog(this, "Mật khẩu không được để trống");
+        if (test && (password1 == null)) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu không được để trống");
             test=false;
         }
-        if (test && (newPassword1==null)){
-             JOptionPane.showMessageDialog(this, "Mật khẩu mới không được để trống");
+        if (test && (newPassword1 == null)) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu mới không được để trống");
             test=false;
         }
-        if (test && (newPassword2==null)){
-             JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu mới không được để trống");
-            test=false;
+        if (test && (newPassword2 == null)) {
+            JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu mới không được để trống");
+            test = false;
         }
-        if (test && ((newPassword2.length()<6)||(newPassword1.length()<6||(password1.length()<6)))){
-             JOptionPane.showMessageDialog(this, "Mật khẩu phải dài ít nhất 6 ký tự");
-            test=false;
+        if (test && ((newPassword2.length()<6) || (newPassword1.length()<6 || (password1.length()<6)))) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu phải dài ít nhất 6 ký tự");
+            test = false;
         }
-        if(test){
+        if (test) {
    
             if (lc.login(userName1, password1,list)){
                 if (newPassword1.equals(newPassword2))
                 {   
                     JOptionPane.showMessageDialog(this, "Thay đổi mật khẩu thành công.");
-                    int index=PasswordController.getIdOfUserChange(userName1, password1, list);
+                    int index = PasswordController.getIdOfUserChange(userName1, password1, list);
                     PasswordController.changePassword(index, newPassword1);
                     this.setVisible(false);
                     LoginFrame loginFrame = new LoginFrame();
@@ -205,7 +204,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
                     loginFrame.setVisible(true);
                 }
                 else{
-                     JOptionPane.showMessageDialog(this, "Mật khẩu mới phải trùng nhau.");
+                    JOptionPane.showMessageDialog(this, "Mật khẩu mới phải trùng nhau.");
                 }
             }
             else{
@@ -214,27 +213,27 @@ public class ThayDoiPassword extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_jButtonChangeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.setVisible(false);
-        LoginFrame td=new LoginFrame();
+        LoginFrame td = new LoginFrame();
         td.setLocationRelativeTo(null);
         td.setAlwaysOnTop(true);
         td.setLocationRelativeTo(null);
         td.setResizable(false);
         td.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void jButtonChangeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonChangeMouseEntered
         jButtonChange.setBackground(new Color(145, 218, 102));
     }//GEN-LAST:event_jButtonChangeMouseEntered
 
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-       jButton1.setBackground(new Color(145, 218, 102));
-    }//GEN-LAST:event_jButton1MouseEntered
+    private void btnBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseEntered
+       btnBack.setBackground(new Color(145, 218, 102));
+    }//GEN-LAST:event_btnBackMouseEntered
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setBackground(Color.GREEN);
-    }//GEN-LAST:event_jButton1MouseExited
+    private void btnBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseExited
+        btnBack.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnBackMouseExited
 
     private void jButtonChangeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonChangeMouseExited
         jButtonChange.setBackground(Color.GREEN);
@@ -276,7 +275,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButtonChange;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelNewPassword;

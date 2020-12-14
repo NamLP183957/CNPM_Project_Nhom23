@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ADMIN
+ * @author Le Phuong Nam
  */
 public class DanhMucBean {
     private String kind;

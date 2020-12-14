@@ -7,7 +7,7 @@ package models;
 
 /**
  *
- * @author acer
+ * @author Tran Van Tuyen
  */
 public class Account {
     private int Id;
@@ -21,12 +21,7 @@ public class Account {
     public void setId(int Id) {
         this.Id = Id;
     }
-    
-
-   
-
-    
-    
+ 
     public String getPassword() {
         return password;
     }
@@ -42,6 +37,5 @@ public class Account {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    
-    
+ 
 }

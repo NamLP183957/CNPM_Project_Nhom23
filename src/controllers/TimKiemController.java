@@ -8,10 +8,10 @@ package controllers;
 import java.util.ArrayList;
 import models.PhanAnh;
 import java.sql.*;
-import service.MySQLConnection;
+import services.MySQLConnection;
 /**
  *
- * @author acer
+ * @author Tran Van Tuyen
  */
 public class TimKiemController {
         public ArrayList<PhanAnh> getPhanAnhByState(String state) {

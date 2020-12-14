@@ -13,7 +13,7 @@ import views.phanhoi.XemPHPanel;
 
 /**
  *
- * @author THINKBOOK
+ * @author Hoang Trung Hieu
  */
 public class XemPHController {
     private int maPA;

@@ -5,19 +5,13 @@
  */
 package controllers;
 
-/**
- *
- * @author acer
- */
-
-
 import java.util.ArrayList;
 import models.Account;
 import java.sql.*;
-import service.MySQLConnection;
+import services.MySQLConnection;
 /**
  *
- * @author acer
+ * @author Tran Van Tuyen
  */
 public class LoginController {
        
@@ -45,14 +39,12 @@ public class LoginController {
         }
         
         //kiem tra login
-        public boolean login(String username,String password,ArrayList<Account> list){ 
-            boolean b=false;
+        public boolean login(String username,String password,ArrayList<Account> list) { 
+            boolean b = false;
             for (int i = 0; i < list.size(); i++) {  
-               // System.out.println(( list.get(i).getPassword().equals(password))); 
                 if (( list.get(i).getUserName().equals(username) ) && (list.get(i).getPassword().equals(password))){   
                     return true;         
-               }
-               System.out.println(list.get(2).getUserName()+list.get(2).getPassword());
+                }
             }
             return false;
         }

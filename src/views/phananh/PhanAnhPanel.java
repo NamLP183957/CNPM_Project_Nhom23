@@ -9,17 +9,15 @@ import controllers.TimKiemController;
 import controllers.phananh.SuaPAController;
 import controllers.phananh.XemPAController;
 import java.awt.BorderLayout;
-import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import models.PhanAnh;
 
 /**
  *
- * @author acer
+ * @author Tran Van Tuyen
  */
 public class PhanAnhPanel extends javax.swing.JPanel {
 

@@ -10,11 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JLabel;
-import service.MySQLConnection;
+import services.MySQLConnection;
 
 /**
  *
- * @author ADMIN
+ * @author Le Phuong Nam
  */
 public class HomeController {
     private JLabel jlbPhanAnh;

@@ -5,7 +5,7 @@
  */
 package views.phananh;
 
-import utility.DatePlus;
+import utilities.DatePlus;
 import controllers.phananh.SuaPAController;
 import java.awt.BorderLayout;
 import java.sql.Date;
@@ -15,7 +15,7 @@ import models.PhanAnh;
 
 /**
  *
- * @author THINKBOOK
+ * @author Do Kim Tra
  */
 public class SuaPAPanel extends javax.swing.JPanel {
     
@@ -266,34 +266,34 @@ public class SuaPAPanel extends javax.swing.JPanel {
         int month = dp.getMonth();
         int day = dp.getDay();
         
-        for(int i=0;i<dateComboBox.getItemCount();i++){
-            if(day == Integer.parseInt(dateComboBox.getItemAt(i))){
+        for (int i=0;i<dateComboBox.getItemCount();i++) {
+            if(day == Integer.parseInt(dateComboBox.getItemAt(i))) {
                 dateComboBox.setSelectedIndex(i);
                 break;
             }
         }
-        for(int i=0;i<monthComboBox.getItemCount();i++){
-            if(month==Integer.parseInt(monthComboBox.getItemAt(i))){
+        for (int i = 0; i < monthComboBox.getItemCount(); i++) {
+            if (month == Integer.parseInt(monthComboBox.getItemAt(i))) {
                 monthComboBox.setSelectedIndex(i);
                 break;
             }
         }
-        for(int i=0;i<yearComboBox.getItemCount();i++){
-            if(year==Integer.parseInt(yearComboBox.getItemAt(i))){
+        for (int i = 0; i < yearComboBox.getItemCount(); i++) {
+            if(year == Integer.parseInt(yearComboBox.getItemAt(i))) {
                 yearComboBox.setSelectedIndex(i);
                 break;
             }
         }
         String type = previousPA.getType();
-        for(int i=0;i<typeComboBox.getItemCount();i++){
-            if(type.compareTo(typeComboBox.getItemAt(i))==0){
+        for (int i = 0; i < typeComboBox.getItemCount(); i++) {
+            if (type.compareTo(typeComboBox.getItemAt(i)) == 0) {
                 typeComboBox.setSelectedIndex(i);
                 break;
             }
         }
         String state = previousPA.getState();
-        for(int i=0;i<stateComboBox.getItemCount();i++){
-            if(state.compareTo(stateComboBox.getItemAt(i))==0){
+        for (int i = 0; i < stateComboBox.getItemCount(); i++) {
+            if (state.compareTo(stateComboBox.getItemAt(i)) == 0) {
                 stateComboBox.setSelectedIndex(i);
                 break;
             }

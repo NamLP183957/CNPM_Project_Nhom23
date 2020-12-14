@@ -1,5 +1,5 @@
 
-package utility;
+package utilities;
 
 import java.util.List;
 import javafx.util.Pair;
@@ -9,7 +9,7 @@ import models.PhanAnh;
 
 /**
  *
- * @author ADMIN
+ * @author Tran Van Tuyen
  */
 public class ClassTableModel {
    

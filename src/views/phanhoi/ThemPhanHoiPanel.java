@@ -14,7 +14,7 @@ import models.PhanHoi;
 
 /**
  *
- * @author Vostro 3580
+ * @author Le Minh Nghia
  */
 public class ThemPhanHoiPanel extends javax.swing.JPanel {
     

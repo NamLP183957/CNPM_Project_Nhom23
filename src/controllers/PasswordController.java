@@ -6,20 +6,17 @@
 package controllers;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import models.Account;
-import models.PhanAnh;
-import service.MySQLConnection;
+import services.MySQLConnection;
 
 /**
  *
- * @author acer
+ * @author Tran Van Tuyen
  */
 public class PasswordController {
-    ArrayList<Account> list=LoginController.getAccount();
+    ArrayList<Account> list = LoginController.getAccount();
     public static int getIdOfUserChange(String username,String password,ArrayList<Account> list){ 
             for (int i = 0; i < list.size(); i++) {   
                 if (( list.get(i).getUserName().equals(username) ) && (list.get(i).getPassword().equals(password))){   
@@ -29,9 +26,9 @@ public class PasswordController {
             }
             return 0; 
     }
-    public static void changePassword(int id,String newPassword){
-        Connection conn=MySQLConnection.getMySQLConnection();
-            String sqlUpdatePassword = "update tai_khoan set password="+newPassword+" where id="+ id;
+    public static void changePassword(int id,String newPassword) {
+        Connection conn = MySQLConnection.getMySQLConnection();
+            String sqlUpdatePassword = "update tai_khoan set password =" + newPassword + " where id=" + id;
             try {
                  Statement st = conn.createStatement();
                  st.execute(sqlUpdatePassword);

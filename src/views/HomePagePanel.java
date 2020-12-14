@@ -9,7 +9,7 @@ import controllers.HomeController;
 
 /**
  *
- * @author ADMIN
+ * @author Le Phuong Nam
  */
 public class HomePagePanel extends javax.swing.JPanel {
 

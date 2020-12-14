@@ -14,7 +14,7 @@ import models.PhanAnh;
 
 /**
  *
- * @author THINKBOOK
+ * @author Hoang Trung Hieu
  */
 public class ThemPAPanel extends javax.swing.JPanel {
     

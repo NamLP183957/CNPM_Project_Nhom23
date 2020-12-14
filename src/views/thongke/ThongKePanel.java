@@ -7,13 +7,10 @@ package views.thongke;
 
 import controllers.thongke.ThongKeController;
 import javax.swing.JFrame;
-import javax.swing.table.DefaultTableModel;
-import org.jfree.chart.ChartPanel;
-import utility.ClassTableModel;
 
 /**
  *
- * @author ADMIN
+ * @author Le Phuong Nam
  */
 public class ThongKePanel extends javax.swing.JPanel {
        JFrame parentFrame;
