@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/MainFrame.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/SuaPhanHoiPanel.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phanhoi/XemPHPanel.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/phananh/ThemPAPanel.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phanhoi/PhanHoiController.java</file>
-            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phananh/XemPAController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/phananh/SuaPAController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/HomePagePanel.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/services/MySQLConnection.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/controllers/thongke/ThongKeController.java</file>
+            <file>file:/D:/NetBeansProjects/QuanLyPAKN/src/views/LoginFrame.java</file>
         </group>
     </open-files>
 </project-private>
