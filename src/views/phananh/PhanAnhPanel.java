@@ -277,7 +277,7 @@ public class PhanAnhPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int rowselected = thongTinPhanAnh.getSelectedRow();
         if(rowselected == -1){
-            JOptionPane.showMessageDialog(this, "bạn chưa chọn phản ánh để thay đổi");
+            JOptionPane.showMessageDialog(this, "Hãy chọn một phản ánh muốn thay đổi");
             return;
         }
         PhanAnh pa = listSearch.get(rowselected);

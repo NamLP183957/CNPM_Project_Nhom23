@@ -81,7 +81,6 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
         txtAreaND.setRows(1000);
         jScrollPane1.setViewportView(txtAreaND);
 
-        cbDay.setEditable(true);
         cbDay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
         cbDay.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +89,6 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
             }
         });
 
-        cbMonth.setEditable(true);
         cbMonth.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         cbMonth.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +97,6 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
             }
         });
 
-        cbYear.setEditable(true);
         cbYear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2031", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", " " }));
         cbYear.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +105,6 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
             }
         });
 
-        cbCoQuan.setEditable(true);
         cbCoQuan.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbCoQuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UBND QUẬN HAI BÀ TRƯNG", "TAND QUẬN HAI BÀ TRƯNG", "CÔNG AN QUẬN HAI BÀ TRƯNG", "PHÒNG THANH TRA QUẬN HAI BÀ TRƯNG", "BHXH QUẬN HAI BÀ TRƯNG", "VĂN PHÒNG ĐĂNG KÝ ĐẤT ĐAI QUẬN HAI BÀ TRƯNG", "PHÒNG LAO ĐỘNG THƯƠNG BINH XÃ HỘI" }));
         cbCoQuan.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +157,7 @@ public class ThemPhanHoiPanel extends javax.swing.JPanel {
                                 .addGap(57, 57, 57)
                                 .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtNgLQ, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbCoQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cbCoQuan, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 63, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(382, 382, 382)
