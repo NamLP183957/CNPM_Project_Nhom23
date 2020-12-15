@@ -60,7 +60,8 @@ màn hình giao diện người dùng cho ứng dụng
 * **Bước 3:** Đăng nhập tài khoản
 
    ![DangNhap](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/DangNhap.jpg)
-
+  
+   Tài khoản mặc định: Username: username/ Password: 12345678
 * **Bước 4:** Tại màn hình chính chọn các chức năng mà bạn muốn
   
   * Xem phản ánh, tìm kiếm phản ánh, thêm phản ánh...
