@@ -41,11 +41,15 @@ màn hình giao diện người dùng cho ứng dụng
   
   ![SoucePackage](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/CauTrucProject.jpg)
 
-* **Bước 4:** Thêm vào thư mục Libraries của project MySQL JDBC Driver và các thư viện của freechart để vẽ biểu đồ
+* **Bước 4:** Thêm vào thư mục Libraries của project MySQL JDBC Driver và các thư viện của freechart để vẽ biểu đồ (nếu chưa có)
    
    ![Libraries](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/ThemVaoThuVien.jpg)
 
-* **Bước 5:** Chạy file LoginFrame.java để bắt đầu chạy thử
+* **Bước 5:** Khởi động XAMPP, nhấn Start Apache và MySQL, sau đó nhấn Admin của MySQL để mở phpMyAdmin
+
+* **Bước 6:** Tải file quan_ly_phan_anh.sql trong trang gibhub, import file này vào phpMyAdmin
+
+* **Bước 7:** Chạy file LoginFrame.java để bắt đầu chạy thử. Tài khoản đăng nhập mặc định có tên đăng nhập là "username" và mật khẩu là "12345678".
 
 ## HƯỚNG DẪN CHẠY PHẦN MỀM
 
@@ -53,16 +57,18 @@ màn hình giao diện người dùng cho ứng dụng
   
   ![VaoThuMucDist](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/CauTrucThuMuc.jpg)
   
-* **Bước 2:** Click vào QuanLyPhanAnhKienNghi.jar để bắt đầu chạy phần mềm
+* **Bước 2:** Khởi động XAMPP, Start Apache và MySQL,  mở phpMyAdmin và import file phan_anh_kien_nghi.sql
+  
+* **Bước 3:** Click vào QuanLyPhanAnhKienNghi.jar để bắt đầu chạy phần mềm
   
   ![ClickFile_jar](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/ClickFile_jar.jpg)
   
-* **Bước 3:** Đăng nhập tài khoản
+* **Bước 4:** Đăng nhập tài khoản
 
    ![DangNhap](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/DangNhap.jpg)
   
    Tài khoản mặc định: Username: username/ Password: 12345678
-* **Bước 4:** Tại màn hình chính chọn các chức năng mà bạn muốn
+* **Bước 5:** Tại màn hình chính chọn các chức năng mà bạn muốn
   
   * Xem phản ánh, tìm kiếm phản ánh, thêm phản ánh...
      ![PhanAnh](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/PhanAnhPanel.jpg)
