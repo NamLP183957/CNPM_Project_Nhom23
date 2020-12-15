@@ -229,7 +229,7 @@ public class PhanHoiPanel extends javax.swing.JPanel {
             int maPA = listSearch.get(selected).getId();
             
             if (PhanHoiController.isPhanHoiExist(maPA)) {
-                    JOptionPane.showMessageDialog(this, "Phản hồi này đã được ghi nhận, bấm xem phản hồi !");
+                    JOptionPane.showMessageDialog(this, "Phản ánh này đã có thông tin phản hồi!");
             } else {
                 this.removeAll();
                 this.setLayout(new BorderLayout());

@@ -38,33 +38,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="1073" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="222" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="227" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="cbDay" min="-2" pref="91" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="cbMonth" min="-2" pref="99" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="cbYear" min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="cbCoQuan" min="-2" pref="552" max="-2" attributes="0"/>
-                          <Component id="txtNgLQ" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnUpdate" min="-2" pref="111" max="-2" attributes="0"/>
@@ -72,19 +45,51 @@
               <Component id="btnBack" min="-2" pref="106" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane1" min="-2" pref="1089" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel4" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="269" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="227" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtNgLQ" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="cbDay" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Component id="cbMonth" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="cbYear" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="cbCoQuan" alignment="0" min="-2" pref="526" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="cbMonth" pref="44" max="32767" attributes="0"/>
-                  <Component id="cbYear" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" max="32767" attributes="0"/>
-                  <Component id="cbDay" max="32767" attributes="0"/>
+                  <Component id="cbDay" alignment="0" pref="44" max="32767" attributes="0"/>
+                  <Component id="cbMonth" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbYear" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel3" max="32767" attributes="0"/>
                   <Component id="cbCoQuan" pref="46" max="32767" attributes="0"/>
@@ -99,7 +104,7 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="481" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="479" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -129,7 +134,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ng&#x1b0;&#x1edd;i li&#xea;n quan"/>
+        <Property name="text" type="java.lang.String" value="C&#xe1; Nh&#xe2;n, T&#x1ed5; Ch&#x1ee9;c Li&#xea;n Quan"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

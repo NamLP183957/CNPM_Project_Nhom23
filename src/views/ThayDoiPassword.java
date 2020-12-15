@@ -213,7 +213,7 @@ public class ThayDoiPassword extends javax.swing.JFrame {
                     loginFrame.setVisible(true);
                 }
                 else{
-                    JOptionPane.showMessageDialog(this, "Mật khẩu mới phải trùng nhau.");
+                    JOptionPane.showMessageDialog(this, "Mật khẩu nhập lại không khớp với mật khẩu mới vừa nhập.");
                 }
             }
             else{
