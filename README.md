@@ -8,13 +8,8 @@ Triển khai cơ sở dữ liệu trên hệ quản trị cơ sở dữ liệu M
 
 Database name: Quan_ly_phan_anh
 
-Các bảng trong database:
+Import file quan_ly_phan_anh.sql vào trong hệ quản trị cơ sở dữ liệu bằng phpMyAdmin: (https://github.com/NamLP183957/CNPM_Project_Nhom23)
 
-* ![CoQuan](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/CoQuan.jpg)
-
-* ![PhanAnh](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/PhanAnh.jpg)
-
-* ![PhanHoi](https://raw.githubusercontent.com/NamLP183957/CNPM_Project_Nhom23/master/DataBaseImage/PhanHoi.jpg)
 
 ## CẤU TRÚC CỦA PROJECT
 Project chia thành các gói (package) như sau
